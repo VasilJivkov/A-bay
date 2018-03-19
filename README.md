@@ -1,16 +1,14 @@
 # A-bay - buy & sell
-
-## Web application with Node.js.
  
-### Application __back-end__- Server
+## Application __back-end__- Server
   * Server -> **Express.js**, __*Based on the MVC design pattern*__
   * Implemented __public__ & __private__  dynamic web pages -> **Pug.js**
   * Database -> **MariaDB** 
   * ORM -> **Sequelize**
   * Users authenticatication -> **Passport.js**
 
-### Application __front-end__- Client
+## Application __front-end__- Client
   * Responsive design -> mainly **Bootstrap**
 
-### Testing
+## Testing
   * Unit testing with **Mocha** & **Chai**
