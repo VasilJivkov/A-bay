@@ -10,14 +10,14 @@ var Sequelize = require('sequelize');
  * createTable "DeliveryTypes", deps: []
  * createTable "Users", deps: []
  * createTable "Products", deps: [Cities, Users, Categories]
- * createTable "ProductsDeliveryType", deps: [DeliveryTypes, Products]
+ * createTable "products_delivery_type", deps: [DeliveryTypes, Products]
  *
  **/
 
 var info = {
     "revision": 1,
     "name": "noname",
-    "created": "2018-03-19T15:36:09.281Z",
+    "created": "2018-03-19T21:36:48.423Z",
     "comment": ""
 };
 
@@ -34,7 +34,8 @@ var migrationCommands = [{
                 },
                 "name": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -61,8 +62,8 @@ var migrationCommands = [{
                 },
                 "name": {
                     "type": Sequelize.STRING,
-                    "unique": true,
-                    "allowNull": false
+                    "allowNull": false,
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -89,7 +90,8 @@ var migrationCommands = [{
                 },
                 "name": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -234,7 +236,7 @@ var migrationCommands = [{
     {
         fn: "createTable",
         params: [
-            "ProductsDeliveryType",
+            "products_delivery_type",
             {
                 "createdAt": {
                     "type": Sequelize.DATE,

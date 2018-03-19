@@ -3,8 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const City = sequelize.define('City', {
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
+            allowNull: false,
         },
     }, {
             charset: 'utf8',
@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         });
 
     City.associate = (models) => {
-
     };
 
     return City;

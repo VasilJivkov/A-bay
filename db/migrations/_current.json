@@ -10,6 +10,7 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "name": {
+                    "unique": true,
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
@@ -34,8 +35,8 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "name": {
-                    "allowNull": false,
                     "unique": true,
+                    "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
                 "createdAt": {
@@ -59,6 +60,7 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "name": {
+                    "unique": true,
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
@@ -230,5 +232,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 1
 }

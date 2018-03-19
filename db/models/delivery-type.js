@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const DeliveryType = sequelize.define('DeliveryType', {
         name: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
         },
     }, {
