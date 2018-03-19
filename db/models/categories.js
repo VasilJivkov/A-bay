@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
+        },db
     }, {
             charset: 'utf8',
             collate: 'utf8_unicode_ci',
@@ -13,6 +13,5 @@ module.exports = (sequelize, DataTypes) => {
     Categories.associate = (models) => {
 
     };
-
     return Categories;
 };
