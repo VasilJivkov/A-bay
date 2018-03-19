@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             allowNull: false,
         },
         picture: {
@@ -22,15 +22,16 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
     }, {
-        charset: 'utf8',
-        collate: 'utf8_unicode_ci',
-    });
+            charset: 'utf8',
+            collate: 'utf8_unicode_ci',
+        });
 
     Products.associate = (models) => {
         const {
             City,
             Users,
             Categories,
+            DeliveryType,
         } = models;
 
         Products.belongsTo(City, {
@@ -46,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
         Products.belongsTo(Categories, {
             foreignKey: 'fk_category_id',
             onDelete: 'CASCADE',
+        });
+
+        Products.belongsToMany(DeliveryType, {
+            foreignKey: 'fk_delivery_type_id',
+            through: 'products_delivery_type',
         });
     };
 

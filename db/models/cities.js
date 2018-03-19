@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
         },
     }, {
-        charset: 'utf8',
-        collate: 'utf8_unicode_ci',
-    });
+            charset: 'utf8',
+            collate: 'utf8_unicode_ci',
+        });
 
     City.associate = (models) => {
 

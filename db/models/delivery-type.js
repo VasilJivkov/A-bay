@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
         });
 
     DeliveryType.associate = (models) => {
+        const {
+            Products,
+        } = models;
+
+        DeliveryType.belongsToMany(Products, {
+            foreignKey: 'fk_products_id',
+            through: 'products_delivery_type',
+        });
     };
 
     return DeliveryType;

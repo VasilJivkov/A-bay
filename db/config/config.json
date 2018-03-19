@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "server=2fbc86a9-8d28-42c2-8461-a8a700fb6146.mysql.sequelizer.com;database=db2fbc86a98d2842c28461a8a700fb6146;uid=wtrvajinddvkubnt;pwd=ovnxWHjXVtULBpHcjAyx4X4PXV5CbKgcyMCcm6CsJZdPJQd2FXpvMiZxzFHbMPVk",
+    "database": "a_bay",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
