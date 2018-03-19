@@ -22,11 +22,31 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
     }, {
-            charset: 'utf8',
-            collate: 'utf8_unicode_ci',
-        });
+        charset: 'utf8',
+        collate: 'utf8_unicode_ci',
+    });
 
     Products.associate = (models) => {
+        const {
+            City,
+            Users,
+            Categories,
+        } = models;
+
+        Products.belongsTo(City, {
+            foreignKey: 'fk_city_id',
+            onDelete: 'CASCADE',
+        });
+
+        Products.belongsTo(Users, {
+            foreignKey: 'fk_user_id',
+            onDelete: 'CASCADE',
+        });
+
+        Products.belongsTo(Categories, {
+            foreignKey: 'fk_category_id',
+            onDelete: 'CASCADE',
+        });
     };
 
     return Products;
