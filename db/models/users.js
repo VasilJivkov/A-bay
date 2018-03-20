@@ -40,6 +40,13 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   Users.associate = (models) => {
+    const {
+      Products,
+    } = models;
+
+    Users.belongsToMany(Products, {
+      through: 'favorites',
+  });
   };
 
   return Users;

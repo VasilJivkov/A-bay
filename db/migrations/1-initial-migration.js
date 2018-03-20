@@ -11,13 +11,14 @@ var Sequelize = require('sequelize');
  * createTable "Users", deps: []
  * createTable "Products", deps: [Cities, Users, Categories]
  * createTable "products_delivery_type", deps: [DeliveryTypes, Products]
+ * createTable "favorites", deps: [Products, Users]
  *
  **/
 
 var info = {
     "revision": 1,
     "name": "noname",
-    "created": "2018-03-19T21:36:48.423Z",
+    "created": "2018-03-20T13:44:32.390Z",
     "comment": ""
 };
 
@@ -130,6 +131,7 @@ var migrationCommands = [{
                     "validate": {
                         "isEmail": true
                     },
+                    "unique": true,
                     "allowNull": false
                 },
                 "firstName": {
@@ -246,7 +248,7 @@ var migrationCommands = [{
                     "type": Sequelize.DATE,
                     "allowNull": false
                 },
-                "fk_products_id": {
+                "DeliveryTypeId": {
                     "type": Sequelize.INTEGER,
                     "onUpdate": "CASCADE",
                     "onDelete": "CASCADE",
@@ -256,12 +258,49 @@ var migrationCommands = [{
                     },
                     "primaryKey": true
                 },
-                "fk_delivery_type_id": {
+                "ProductId": {
                     "type": Sequelize.INTEGER,
                     "onUpdate": "CASCADE",
                     "onDelete": "CASCADE",
                     "references": {
                         "model": "Products",
+                        "key": "id"
+                    },
+                    "primaryKey": true
+                }
+            },
+            {}
+        ]
+    },
+    {
+        fn: "createTable",
+        params: [
+            "favorites",
+            {
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
+                },
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
+                },
+                "ProductId": {
+                    "type": Sequelize.INTEGER,
+                    "onUpdate": "CASCADE",
+                    "onDelete": "CASCADE",
+                    "references": {
+                        "model": "Products",
+                        "key": "id"
+                    },
+                    "primaryKey": true
+                },
+                "UserId": {
+                    "type": Sequelize.INTEGER,
+                    "onUpdate": "CASCADE",
+                    "onDelete": "CASCADE",
+                    "references": {
+                        "model": "Users",
                         "key": "id"
                     },
                     "primaryKey": true

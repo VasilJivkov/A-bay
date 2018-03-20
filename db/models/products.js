@@ -50,8 +50,11 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Products.belongsToMany(DeliveryType, {
-            foreignKey: 'fk_delivery_type_id',
             through: 'products_delivery_type',
+        });
+
+        Products.belongsToMany(Users, {
+            through: 'favorites',
         });
     };
 

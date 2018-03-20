@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         } = models;
 
         DeliveryType.belongsToMany(Products, {
-            foreignKey: 'fk_products_id',
             through: 'products_delivery_type',
         });
     };

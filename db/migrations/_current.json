@@ -165,6 +165,7 @@
                 },
                 "email": {
                     "allowNull": false,
+                    "unique": true,
                     "validate": {
                         "isEmail": true
                     },
@@ -208,7 +209,7 @@
                     "allowNull": false,
                     "seqType": "Sequelize.DATE"
                 },
-                "fk_products_id": {
+                "DeliveryTypeId": {
                     "primaryKey": true,
                     "references": {
                         "model": "DeliveryTypes",
@@ -218,10 +219,44 @@
                     "onUpdate": "CASCADE",
                     "seqType": "Sequelize.INTEGER"
                 },
-                "fk_delivery_type_id": {
+                "ProductId": {
                     "primaryKey": true,
                     "references": {
                         "model": "Products",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "favorites": {
+            "tableName": "favorites",
+            "schema": {
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "ProductId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Products",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "UserId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Users",
                         "key": "id"
                     },
                     "onDelete": "CASCADE",
