@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
     const Products = sequelize.define('Products', {
         title: {
@@ -35,17 +36,26 @@ module.exports = (sequelize, DataTypes) => {
         } = models;
 
         Products.belongsTo(City, {
-            foreignKey: 'fk_city_id',
+            foreignKey: {
+                name: 'fk_city_id',
+                allowNull: false,
+            },
             onDelete: 'CASCADE',
         });
 
         Products.belongsTo(Users, {
-            foreignKey: 'fk_user_id',
+            foreignKey: {
+                name: 'fk_user_id',
+                allowNull: false,
+            },
             onDelete: 'CASCADE',
         });
 
         Products.belongsTo(Categories, {
-            foreignKey: 'fk_category_id',
+            foreignKey: {
+                name: 'fk_category_id',
+                allowNull: false,
+            },
             onDelete: 'CASCADE',
         });
 

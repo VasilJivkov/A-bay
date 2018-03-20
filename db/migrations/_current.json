@@ -113,7 +113,8 @@
                     "seqType": "Sequelize.DATE"
                 },
                 "fk_city_id": {
-                    "allowNull": true,
+                    "name": "fk_city_id",
+                    "allowNull": false,
                     "references": {
                         "model": "Cities",
                         "key": "id"
@@ -123,7 +124,8 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "fk_user_id": {
-                    "allowNull": true,
+                    "name": "fk_user_id",
+                    "allowNull": false,
                     "references": {
                         "model": "Users",
                         "key": "id"
@@ -133,7 +135,8 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "fk_category_id": {
-                    "allowNull": true,
+                    "name": "fk_category_id",
+                    "allowNull": false,
                     "references": {
                         "model": "Categories",
                         "key": "id"

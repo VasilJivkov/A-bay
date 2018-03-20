@@ -18,7 +18,7 @@ var Sequelize = require('sequelize');
 var info = {
     "revision": 1,
     "name": "noname",
-    "created": "2018-03-20T13:44:32.390Z",
+    "created": "2018-03-20T20:52:18.486Z",
     "comment": ""
 };
 
@@ -209,7 +209,8 @@ var migrationCommands = [{
                         "model": "Cities",
                         "key": "id"
                     },
-                    "allowNull": true
+                    "allowNull": false,
+                    "name": "fk_city_id"
                 },
                 "fk_user_id": {
                     "type": Sequelize.INTEGER,
@@ -219,7 +220,8 @@ var migrationCommands = [{
                         "model": "Users",
                         "key": "id"
                     },
-                    "allowNull": true
+                    "allowNull": false,
+                    "name": "fk_user_id"
                 },
                 "fk_category_id": {
                     "type": Sequelize.INTEGER,
@@ -229,7 +231,8 @@ var migrationCommands = [{
                         "model": "Categories",
                         "key": "id"
                     },
-                    "allowNull": true
+                    "allowNull": false,
+                    "name": "fk_category_id"
                 }
             },
             {}
