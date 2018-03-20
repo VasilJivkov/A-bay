@@ -1,4 +1,4 @@
-# A-bay - buy & sell
+# Web application with Node.js.
  
 ## Application __back-end__- Server
   * Server -> **Express.js**, __*Based on the MVC design pattern*__
