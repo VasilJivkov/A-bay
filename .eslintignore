@@ -1,3 +1,2 @@
-index.js
 migrations
-node_modules
+models/models/index.js
