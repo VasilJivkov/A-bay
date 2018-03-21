@@ -2,15 +2,19 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('DeliveryType', [{
-      id: 1,
-      name: 'Econt',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+    return queryInterface.bulkInsert('DeliveryTypes', [{
+        name: 'Collection',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Postage',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('DeliveryType', null, {});
+    // return queryInterface.bulkDelete('DeliveryType', null, {});
   },
 };
