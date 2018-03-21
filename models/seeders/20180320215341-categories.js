@@ -13,7 +13,7 @@ module.exports = {
         updatedAt: new Date(),
     },
     {
-        name: '101 sessions',
+        name: 'Education',
         createdAt: new Date(),
         updatedAt: new Date(),
     },
