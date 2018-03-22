@@ -1,5 +1,5 @@
     .form-collection#form
-        .card.elevation-2.limit-width.sign-up-card.above#signUpForm
+        .card.elevation-2.limit-width.sign-up-card.above
             .card-body
                 .input-group
                     input(type='text', name='firstName', placeholder='First name')
@@ -7,8 +7,10 @@
                     input(type='text', name='lastName', placeholder='Last name')
                 .input-group
                     select(name='city')
-                        option(value="Sofia")
-                        option(value="plovdiv")
+                        option(value="") Select a city
+                        option(value="Sofia") Sofia
+                        option(value="Plovdiv") Plovdiv
+
                 .input-group.password
                     input(type='password', id='newPassword', placeholder='Enter New Password')
                 .input-group.password
