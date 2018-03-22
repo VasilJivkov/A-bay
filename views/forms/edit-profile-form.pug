@@ -1,0 +1,19 @@
+    .form-collection#form
+        .card.elevation-2.limit-width.sign-up-card.above#signUpForm
+            .card-body
+                .input-group
+                    input(type='text', name='firstName', placeholder='First name')
+                .input-group
+                    input(type='text', name='lastName', placeholder='Last name')
+                .input-group
+                    select(name='city')
+                        option(value="Sofia")
+                        option(value="plovdiv")
+                .input-group.password
+                    input(type='password', id='newPassword', placeholder='Enter New Password')
+                .input-group.password
+                    input(type='password', id='confirmNewPassword', placeholder='Confirm Password')
+                    span(id="message")
+            .card-footer
+                button.signup-btn(type='submit') Edit Profile
+            
