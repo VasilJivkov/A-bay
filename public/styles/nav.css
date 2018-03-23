@@ -10,7 +10,7 @@
     width: 100%;
     border: 1px solid #ecf0f1;
     border-radius: 3px;
-    text-decoration: none;
+    text-decoration: italic;
 }
 
 .dropdown dt a:hover, .dropdown dt a:active {
@@ -21,7 +21,8 @@
     display: block;
     padding: 0 1em;
     line-height: 2.5em;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAYAAACALL/6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHo+AACAQQAA+MoAAIC0AAB48QAA9RwAADw3AAAbzhlfIT4AAACJSURBVHjajNAxCsJAEEbhb5cU4i0sbHIaL6IQTxFPo4VeROwXQs4gKW1cWJZEM90wj5l5f0jDeMXBunqENIw7vLD9A09oIxL6FdsvSCENI2zwxH4BTmgxxeJc92P76cuIpRBuc6K45yZWwzPeleixBOLMr30tWgJZuqwcQJNFy2GzkHeHUMPwGQChFSPmzlJ1WgAAAABJRU5ErkJggg==) no-repeat scroll right center;
+    background-color: #bdc3c7;
+    opacity: 0.8;
     border-right: 1em solid transparent;
     cursor: pointer;
 }
@@ -58,7 +59,7 @@
 }
 
 .dropdown dd li a:hover {
-    background-color: #2ecc71;
+    background-color: #43a700;
     color: #fff;
     cursor: pointer;
 }

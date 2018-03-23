@@ -47,6 +47,26 @@ class Data {
 
         return products;
     }
+
+    orderBy(column, parameter) {
+        const orderedProducts = this.Model.findAll({
+            order: [
+                [column, parameter],
+            ],
+        });
+
+        return orderedProducts;
+    }
+
+    searchBy(catecogy, parameter) {
+        const products = this.Model.findAll({
+            where: {
+                catecogy: parameter,
+            },
+        });
+
+        return products;
+    }
 }
 
 module.exports = {

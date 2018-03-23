@@ -6,8 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
-// Dependency injection
-// Duck typing
+// Dependency injection & duck typing
 const init = (app) => {
     // Defensive programming
     if (typeof app.use !== 'function' ||
