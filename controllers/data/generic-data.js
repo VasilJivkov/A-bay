@@ -69,6 +69,4 @@ class Data {
     }
 }
 
-module.exports = {
-    Data,
-};
+module.exports = Data;

@@ -3,6 +3,7 @@ const {
     Products,
     Categories,
     Cities,
+    DeliveryType,
 } = require('../../models/models');
 
 const Data = require('./generic-data');
@@ -12,4 +13,6 @@ module.exports = {
     products: new Data(Products),
     categories: new Data(Categories),
     cities: new Data(Cities),
+    deliveryType: new Data(DeliveryType),
 };
+
