@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add sequelize-auto-migrations sequelize-cli sequelize --dev
+  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add node_modules/.bin/sequelize
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\atama\bin;C:\Program Files\Microsoft MPI\Bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\TortoiseGit\bin;C:\Program Files\Microsoft DNX\Dnvm;C:\Program Files\dotnet;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files (x86)\Skype\Phone;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\atama\AppData\Local\Microsoft\WindowsApps;C:\Users\atama\AppData\Roaming\npm
@@ -23,7 +23,7 @@ npm manifest:
       "start": "node ./controllers/server.js",
       "test": "echo \"Error: no test specified\" && exit 1",
       "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
-      "migrate": "./node_modules/.bin/sequelize db:migrate"
+      "migrate": "../node_modules/.bin/sequelize db:migrate"
     },
     "repository": {
       "type": "git",
@@ -36,18 +36,21 @@ npm manifest:
     },
     "homepage": "https://github.com/atanasovam/A-bay#readme",
     "dependencies": {
-      "babel-eslint": "^8.2.2",
       "body-parser": "^1.18.2",
       "express": "^4.16.3",
       "mysql2": "^1.5.2",
       "passport": "^0.4.0",
-      "pug": "^2.0.1",
+      "pug": "^2.0.1"
     },
     "devDependencies": {
-      "eslint": "^4.19.0",
+      "babel-eslint": "^8.2.2",
+      "eslint": "^4.19.1",
       "eslint-config-google": "^0.9.1",
       "eslint-config-jquery": "^1.0.1",
-      "morgan": "^1.9.0"
+      "morgan": "^1.9.0",
+      "sequelize": "^4.37.4",
+      "sequelize-auto-migrations": "^1.0.2",
+      "sequelize-cli": "^4.0.0"
     }
   }
 
@@ -738,9 +741,9 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
   
-  eslint@^4.19.0:
-    version "4.19.0"
-    resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.19.0.tgz#9e900efb5506812ac374557034ef6f5c3642fc4c"
+  eslint@^4.19.1:
+    version "4.19.1"
+    resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.19.1.tgz#32d1d653e1d90408854bfb296f076ec7e186a300"
     dependencies:
       ajv "^5.3.0"
       babel-code-frame "^6.22.0"
@@ -2382,10 +2385,11 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  SyntaxError: C:\Users\atama\Desktop\Telerik\github-repos\A-bay\package.json: Unexpected token } in JSON at position 852
-      at JSON.parse (<anonymous>)
-      at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1036:59
+  Error: Couldn't find package "node_modules/.bin/sequelize" on the "npm" registry.
+      at new MessageError (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at NpmResolver.<anonymous> (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:51625:15)
       at Generator.next (<anonymous>)
       at step (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
       at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
       at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:188:7)

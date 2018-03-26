@@ -1,7 +1,7 @@
 extends ../_shared/master
 
 block content
-    div.latestProducts
+    div.allProducts
         div.titleContainer
             div.col-md-12
                 h3.title
@@ -9,15 +9,16 @@ block content
                         | Latest products
         div.productsList
         div.row.col-md-12
-            div.col-md-3.product
-                div.productPicture.col-md-12
-                    a(href='https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg')
-                div.productDesc.row
-                    p.productTitle.title.col-md-8
-                        | ThinkPad T55
-                    p.price.title
-                        | 300 lv
-                div.row.productsButtons
+            each add in adds
+                div.col-md-3.product
+                    div.productPicture.col-md-12
+                        a(href='#{add.picture}')
+                    div.productDesc.row
+                        p.productTitle.title.col-md-8
+                            | #{add.title}
+                        p.price.title
+                            |  #{add.price}
+                    div.row.productsButtons
                     div.col-md-6
                         button#showInfo.showInfo.col-md-12
                             | More info
