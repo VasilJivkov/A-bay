@@ -6,8 +6,8 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=', crossorigin='anonymous')
         script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
-        script(src='//code.jquery.com/jquery-1.11.1.min.js')
         link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', rel='stylesheet')
         link(rel="stylesheet", type="text/css", href="/static/styles/reset.css")
         link(rel="stylesheet", type="text/css", href="/static/styles/signin.css")
@@ -18,5 +18,4 @@ html(lang="en")
         title Abay
     body
         +nav()
-        .container
     block content
