@@ -1,14 +1,19 @@
 const express = require('express');
 
+const config = require('./config');
+
+const customExpress = require('./config/express');
+const routers = require('./routers');
+
 const app = express();
 
-require('./config/express').init(app);
+customExpress.init(app);
+routers.init(app, {});
 
 /** TO DO add middleware */
-app.use((req, res, next) => {
-});
+// app.use((req, res, next) => {
+// });
 
 /** TO DO complete the dependency injection */
-require('./config/').init(app);
 
 app.listen(3003);

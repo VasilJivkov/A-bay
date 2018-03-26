@@ -21,6 +21,8 @@ const init = (app) => {
 
     // Decorators
     app.use('/static', express.static(path.join(__dirname, '../../public')));
+    app.set('views', path.join(__dirname, '../../views'));
+
     app.use(morgan('combined', {
         skip: (req, res) => res.statusCode > 400,
     }));

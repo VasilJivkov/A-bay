@@ -4,18 +4,20 @@ const fs = require('fs');
 const path = require('path');
 
 const init = (app, data) => {
-    app.get('/', async (req, res) => {
-        res.render('/');
+    app.get('/', (req, res) => {
+        console.log('Routes!!!');
+
+        res.render('_shared/master');
     });
 
-    // Load all routes dynamically
+    // Dynamically load all routes
     fs.readdirSync(__dirname)
-        .filter((file) => file !== path.basename(__filename))
-        .fill((file) => file !== 'index.js')
-        // Relative -> absolute path
-        .map((file) => path.join(__dirname, __filename))
-        .forEach((mosulePath) => {
-            const route = require(mosulePath);
+        .filter((filename) => filename !== path.basename(__filename))
+        .filter((filename) => filename !== 'index.js')
+        // relative -> absolute path
+        .map((filename) => path.join(__dirname, filename))
+        .forEach((modulePath) => {
+            const route = require(modulePath);
             route.init(app, data);
         });
 };
