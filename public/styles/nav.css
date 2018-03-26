@@ -58,8 +58,8 @@
     text-decoration: none;
 }
 
-.dropdown dd li a:hover {
-    background-color: #43a700;
+.dropdown:hover {
+    background-color: #202020 !important;
     color: #fff;
     cursor: pointer;
 }

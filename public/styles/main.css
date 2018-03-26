@@ -1,19 +1,22 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 100%;
-    background-color: #ebf0f5;
+    background-color: #ced5dd;
 }
 
-.nav {
-    background-color: #43a700;
-}
-
-.stats-button {
-    background-color: rgba(0, 0, 0, 0.05);
+div.col-md-2 {
+    overflow: hidden;
 }
 
 /** Navbar */
 
+.nav {
+    margin: 0px;
+    background-color: #43a700;
+    opacity: 0.8;
+}
+
+.nav
 .logo {
     height: 57px;
     width: 11%;
@@ -33,6 +36,12 @@ body {
     text-transform: uppercase;
     color: #fff;
 }
+
+/* @media only screen and (min-width:800px) {
+    .nav {
+        display: -webkit-flex !important;
+    }
+} */
 
 /* Products */
 
