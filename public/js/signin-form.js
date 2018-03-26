@@ -1,23 +1,23 @@
 $(function () {
-  $('#signUpForm').on('click', '.below button', function () {
-    var belowCard = $('.below'),
-      aboveCard = $('.above'),
-      parent = $('.form-collection');
-    parent.addClass('animation-state-1');
+  $("#signUpForm").on("click", ".below button", function () {
+    var belowCard = $(".below"),
+      aboveCard = $(".above"),
+      parent = $(".form-collection");
+    parent.addClass("animation-state-1");
     setTimeout(function () {
-      belowCard.removeClass('below');
-      aboveCard.removeClass('above');
-      belowCard.addClass('above');
-      aboveCard.addClass('below');
+      belowCard.removeClass("below");
+      aboveCard.removeClass("above");
+      belowCard.addClass("above");
+      aboveCard.addClass("below");
       setTimeout(function () {
-        parent.addClass('animation-state-finish');
-        parent.removeClass('animation-state-1');
+        parent.addClass("animation-state-finish");
+        parent.removeClass("animation-state-1");
         setTimeout(function () {
-          aboveCard.addClass('turned');
-          belowCard.removeClass('turned');
-          parent.removeClass('animation-state-finish');
-        }, 300)
-      }, 10)
+          aboveCard.addClass("turned");
+          belowCard.removeClass("turned");
+          parent.removeClass("animation-state-finish");
+        }, 300);
+      }, 10);
     }, 300);
   });
 
@@ -33,33 +33,33 @@ $(function () {
   // }
 
 
-//   var $field = $('#confirmPwdField');
+  //   var $field = $('#confirmPwdField');
 
-//   var validate = function()  {
-//   if ($newPass.val() !== $confirmPass.val()) {
-//     $field.addClass('input-group');
-//     $field.removeClass('incorrectPass');
-//   } else {
-//     $field.addClass('incorrectPass');
-//     $field.removeClass('input-group');
-//   }
-// };
+  //   var validate = function()  {
+  //   if ($newPass.val() !== $confirmPass.val()) {
+  //     $field.addClass('input-group');
+  //     $field.removeClass('incorrectPass');
+  //   } else {
+  //     $field.addClass('incorrectPass');
+  //     $field.removeClass('input-group');
+  //   }
+  // };
 
-// $newPass.on('change', validate)
-// $confirmPass.on('keyup', validate);
+  // $newPass.on('change', validate)
+  // $confirmPass.on('keyup', validate);
 
-var password = document.getElementById("newPassword")
-var confirm_password = document.getElementById("confirmNewPassword");
+  var password = document.getElementById("newPassword");
+  var confirmPassword = document.getElementById("confirmNewPassword");
 
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
+  function validatePassword() {
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirmPassword.setCustomValidity("");
+    }
   }
-}
 
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+  password.onchange = validatePassword;
+  confirmPassword.onkeyup = validatePassword;
 
 });

@@ -1,13 +1,13 @@
 mixin nav()
-	div.row.col-md-12
+	div.row.col-md-12.navbar-toggler.nav(style="display: -webkit-box !important;")
 		div.col-md-2
-			img(src="https://files.slack.com/files-pri/T83HS0HS7-F9T2KNP1B/logo.png")
+			img(src="../../public/images/logo.png")
 		div.col-md-2
-			a(href="/")
+			button(type="button")
 				| All adds
 		div.col-md-2
 			div.dropdown
-				button.dropbtn 
+				button
 					| Categories
 				div.dropdown-content
 					a(href='#') 
@@ -17,7 +17,7 @@ mixin nav()
 					a(href='#') 
 						| Product 3
 		div.col-md-2
-			a(href="/")
+			button(type="button")
 				| Sell your product
 		div.col-md-2
 			button(type="submit")
