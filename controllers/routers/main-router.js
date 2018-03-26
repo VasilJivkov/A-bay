@@ -7,8 +7,7 @@ const init = (app, data) => {
 
     router.get('/', (req, res) => {
         console.log('Routes!!!');
-
-        res.render('_shared/master');
+        res.render('products/list');
     });
 
     router.get('/signin', (req, res) => {
