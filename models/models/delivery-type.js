@@ -6,6 +6,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
+            validate: {
+                min: 4,
+                max: 15,
+            },
         },
     }, {
             charset: 'utf8',

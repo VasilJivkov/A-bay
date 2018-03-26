@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add sequelize-auto-migrations sequelize-cli sequelize --dev
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\atama\bin;C:\Program Files\Microsoft MPI\Bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\TortoiseGit\bin;C:\Program Files\Microsoft DNX\Dnvm;C:\Program Files\dotnet;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files (x86)\Skype\Phone;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\atama\AppData\Local\Microsoft\WindowsApps;C:\Users\atama\AppData\Roaming\npm
@@ -23,8 +23,7 @@ npm manifest:
       "start": "node ./controllers/server.js",
       "test": "echo \"Error: no test specified\" && exit 1",
       "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
-      "migrate": "./node_modules/.bin/sequelize db:migrate",
-      // "esc": "node ./node_modules/eslint/.bin/eslint.js"
+      "migrate": "./node_modules/.bin/sequelize db:migrate"
     },
     "repository": {
       "type": "git",
@@ -43,9 +42,6 @@ npm manifest:
       "mysql2": "^1.5.2",
       "passport": "^0.4.0",
       "pug": "^2.0.1",
-      "sequelize": "^4.37.2",
-      "sequelize-auto-migrations": "^1.0.2",
-      "sequelize-cli": "^4.0.0"
     },
     "devDependencies": {
       "eslint": "^4.19.0",
@@ -1969,9 +1965,9 @@ Lockfile:
       validator "^9.4.1"
       wkx "^0.4.1"
   
-  sequelize@^4.37.2:
-    version "4.37.2"
-    resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.37.2.tgz#8aaf8527342452958f24bfc28b5c78bc300b75df"
+  sequelize@^4.37.4:
+    version "4.37.4"
+    resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.37.4.tgz#562d64478608da54dcda03c8daef5f964e780014"
     dependencies:
       bluebird "^3.5.0"
       cls-bluebird "^2.1.0"
@@ -2386,7 +2382,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  SyntaxError: C:\Users\atama\Desktop\Telerik\github-repos\A-bay\package.json: Unexpected token / in JSON at position 359
+  SyntaxError: C:\Users\atama\Desktop\Telerik\github-repos\A-bay\package.json: Unexpected token } in JSON at position 852
       at JSON.parse (<anonymous>)
       at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1036:59
       at Generator.next (<anonymous>)
