@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "abay",
-    "host": "127.0.0.1",
+    "host": "127.0.0.1"
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "wtrvajinddvkubnt",
+    "password": "ovnxWHjXVtULBpHcjAyx4X4PXV5CbKgcyMCcm6CsJZdPJQd2FXpvMiZxzFHbMPVk",
+    "database": "db2fbc86a98d2842c28461a8a700fb6146",
+    "host": "2fbc86a9-8d28-42c2-8461-a8a700fb6146.mysql.sequelizer.com",
     "dialect": "mysql"
   }
 }
