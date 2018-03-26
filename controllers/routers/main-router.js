@@ -11,13 +11,13 @@ const init = (app, data) => {
         res.render('_shared/master');
     });
 
-    router.get('/singin', (req, res) => {
-        res.render('forms/singin');
+    router.get('/signin', (req, res) => {
+        res.render('forms/signin');
     });
 
 
     app.use('/', router);
-    app.use('/singin', router);
+    app.use('/signin', router);
 };
 
 module.exports = {

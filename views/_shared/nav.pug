@@ -1,9 +1,7 @@
-include ../products/list
-
 mixin nav()
-	div.row.col-md-12.navbar-toggler.nav(style="display: -webkit-box !important;")
+	div.row.navbar-toggler.nav(style="display: -webkit-box !important;")
 		div.col-md-2
-			img(src="../../public/images/logo.png")
+			img(src="/static/images/logo.png")
 		div.col-md-2
 			button(type="button")
 				| All adds
@@ -12,15 +10,15 @@ mixin nav()
 				button
 					| Categories
 				div.dropdown-content
-					a(href='#') 
+					a(href='#')
 						| Product 1
-					a(href='#') 
+					a(href='#')
 						| Product 2
-					a(href='#') 
+					a(href='#')
 						| Product 3
 		div.col-md-2
 			button(type="button")
 				| Sell your product
 		div.col-md-2
-			a(href='/singin')
+			a(href='/signin')
 				| Sign in
