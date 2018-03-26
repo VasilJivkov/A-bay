@@ -1,65 +1,17 @@
-$(function () {
-  $("#signUpForm").on("click", ".below button", function () {
-    var belowCard = $(".below"),
-      aboveCard = $(".above"),
-      parent = $(".form-collection");
-    parent.addClass("animation-state-1");
-    setTimeout(function () {
-      belowCard.removeClass("below");
-      aboveCard.removeClass("above");
-      belowCard.addClass("above");
-      aboveCard.addClass("below");
-      setTimeout(function () {
-        parent.addClass("animation-state-finish");
-        parent.removeClass("animation-state-1");
-        setTimeout(function () {
-          aboveCard.addClass("turned");
-          belowCard.removeClass("turned");
-          parent.removeClass("animation-state-finish");
-        }, 300);
-      }, 10);
-    }, 300);
-  });
+$(function() {
+    $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
 
-  // var $newPass = $('#newPassword');
-  // var $confirmPass = $('#confirmNewPass');
-
-  // function validatePassword(){
-  //   if($newPass.val() != $confirmPass.val()) {
-  //     $confirmPass.get(0).setCustomValidity("Passwords Don't Match");
-  //   } else {
-  //     confirm_password.setCustomValidity('');
-  //   }
-  // }
-
-
-  //   var $field = $('#confirmPwdField');
-
-  //   var validate = function()  {
-  //   if ($newPass.val() !== $confirmPass.val()) {
-  //     $field.addClass('input-group');
-  //     $field.removeClass('incorrectPass');
-  //   } else {
-  //     $field.addClass('incorrectPass');
-  //     $field.removeClass('input-group');
-  //   }
-  // };
-
-  // $newPass.on('change', validate)
-  // $confirmPass.on('keyup', validate);
-
-  var password = document.getElementById("newPassword");
-  var confirmPassword = document.getElementById("confirmNewPassword");
-
-  function validatePassword() {
-    if (password.value !== confirmPassword.value) {
-      confirmPassword.setCustomValidity("Passwords Don't Match");
-    } else {
-      confirmPassword.setCustomValidity("");
-    }
-  }
-
-  password.onchange = validatePassword;
-  confirmPassword.onkeyup = validatePassword;
-
+    $('#register-form-link').click(function(e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
 });

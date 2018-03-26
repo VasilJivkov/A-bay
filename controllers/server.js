@@ -16,4 +16,4 @@ routers.init(app, {});
 
 /** TO DO complete the dependency injection */
 
-app.listen(3003);
+app.listen(config.port);
