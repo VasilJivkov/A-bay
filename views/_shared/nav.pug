@@ -1,22 +1,24 @@
 mixin nav()
-	nav.main-nav
-		ul
-			li
-				a(href="/")
-					img(src="")
-			li
-				a(href="")
-			dl.dropdown
-				dt
-					a
-						span Categories
-					dd
-						ul
-							li
-								a.default Categories
-							li
-								a Categories 1
-							li
-								a Categories 2
-							li
-								a Categories 3
+	div.row.col-md-12
+		div.col-md-2
+			img(src="https://files.slack.com/files-pri/T83HS0HS7-F9T2KNP1B/logo.png")
+		div.col-md-2
+			a(href="/")
+				| All adds
+		div.col-md-2
+			div.dropdown
+				button.dropbtn 
+					| Categories
+				div.dropdown-content
+					a(href='#') 
+						| Product 1
+					a(href='#') 
+						| Product 2
+					a(href='#') 
+						| Product 3
+		div.col-md-2
+			a(href="/")
+				| Sell your product
+		div.col-md-2
+			button(type="submit")
+				| Sign in

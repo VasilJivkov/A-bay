@@ -11,3 +11,61 @@ body {
 .stats-button {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+/** Navbar */
+
+.logo {
+    height: 57px;
+    width: 11%;
+    padding-top: 14px;
+}
+
+.titleContainer {
+    opacity: 0.4;
+    height: 50px !important;
+    background-color: black;
+}
+
+.title {
+    padding-top: 14.5px;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* Products */
+
+.col-md-3.product {
+    padding: 19px;
+}
+
+.productPicture {
+    /* width: 200px !important; */
+    height: 200px !important;
+}
+
+.productsButtons {
+    padding-top: 3px;
+}
+
+.productsButtons div:first-child {
+    padding-left: 0px;
+    padding-right: 1px;
+}
+
+.productsButtons div:last-child {
+    padding-left: 1px;
+    padding-right: 0px;
+}
+
+.productTitle div {
+    background-color: black;
+    opacity: 0.4;
+}
+
+.productDesc {
+    background-color: black;
+    opacity: 0.4;
+    color: white;
+}
