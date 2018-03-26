@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add
+  C:\Program Files\nodejs\node.exe C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\atama\bin;C:\Program Files\Microsoft MPI\Bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\TortoiseGit\bin;C:\Program Files\Microsoft DNX\Dnvm;C:\Program Files\dotnet;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files (x86)\Skype\Phone;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\atama\AppData\Local\Microsoft\WindowsApps;C:\Users\atama\AppData\Roaming\npm
@@ -20,10 +20,11 @@ npm manifest:
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start" : "node ./controllers/server.js",
+      "start": "node ./controllers/server.js",
       "test": "echo \"Error: no test specified\" && exit 1",
       "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
-      "migrate": "./node_modules/.bin/sequelize db:migrate"
+      "migrate": "./node_modules/.bin/sequelize db:migrate",
+      // "esc": "node ./node_modules/eslint/.bin/eslint.js"
     },
     "repository": {
       "type": "git",
@@ -38,8 +39,6 @@ npm manifest:
     "dependencies": {
       "babel-eslint": "^8.2.2",
       "body-parser": "^1.18.2",
-      "eslint": "^4.19.0",
-      "eslint-config-google": "^0.9.1",
       "express": "^4.16.3",
       "mysql2": "^1.5.2",
       "passport": "^0.4.0",
@@ -47,6 +46,12 @@ npm manifest:
       "sequelize": "^4.37.2",
       "sequelize-auto-migrations": "^1.0.2",
       "sequelize-cli": "^4.0.0"
+    },
+    "devDependencies": {
+      "eslint": "^4.19.0",
+      "eslint-config-google": "^0.9.1",
+      "eslint-config-jquery": "^1.0.1",
+      "morgan": "^1.9.0"
     }
   }
 
@@ -330,6 +335,12 @@ Lockfile:
   balanced-match@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
+  
+  basic-auth@~2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/basic-auth/-/basic-auth-2.0.0.tgz#015db3f353e02e56377755f962742e8981e7bbba"
+    dependencies:
+      safe-buffer "5.1.1"
   
   bluebird@^3.0.5, bluebird@^3.4.1, bluebird@^3.4.6, bluebird@^3.5.0, bluebird@^3.5.1:
     version "3.5.1"
@@ -715,6 +726,10 @@ Lockfile:
   eslint-config-google@^0.9.1:
     version "0.9.1"
     resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.9.1.tgz#83353c3dba05f72bb123169a4094f4ff120391eb"
+  
+  eslint-config-jquery@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/eslint-config-jquery/-/eslint-config-jquery-1.0.1.tgz#a7fdd7bbc98a654bc77139c1f5535fadf0df23c8"
   
   eslint-scope@^3.7.1, eslint-scope@~3.7.1:
     version "3.7.1"
@@ -1382,6 +1397,16 @@ Lockfile:
     version "2.21.0"
     resolved "https://registry.yarnpkg.com/moment/-/moment-2.21.0.tgz#2a114b51d2a6ec9e6d83cf803f838a878d8a023a"
   
+  morgan@^1.9.0:
+    version "1.9.0"
+    resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.9.0.tgz#d01fa6c65859b76fcf31b3cb53a3821a311d8051"
+    dependencies:
+      basic-auth "~2.0.0"
+      debug "2.6.9"
+      depd "~1.1.1"
+      on-finished "~2.3.0"
+      on-headers "~1.0.1"
+  
   ms@2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -1463,6 +1488,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
     dependencies:
       ee-first "1.1.1"
+  
+  on-headers@~1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
   
   once@^1.3.0:
     version "1.4.0"
@@ -2357,14 +2386,10 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Missing list of packages to add to your project.
-      at new MessageError (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at Object.<anonymous> (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:40587:13)
+  SyntaxError: C:\Users\atama\Desktop\Telerik\github-repos\A-bay\package.json: Unexpected token / in JSON at position 359
+      at JSON.parse (<anonymous>)
+      at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1036:59
       at Generator.next (<anonymous>)
       at step (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
-      at Object.<anonymous> (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12)
-      at Object.run (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:40599:19)
-      at run (C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89113:20)
+      at C:\Users\atama\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
