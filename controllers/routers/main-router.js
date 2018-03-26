@@ -12,12 +12,12 @@ const init = (app, data) => {
     });
 
     router.get('/signin', (req, res) => {
-        res.render('_shared/singin');
+        res.render('forms/singin');
     });
 
 
     app.use('/', router);
-    app.use('/signin', router);
+    app.use('/singin', router);
 };
 
 module.exports = {
