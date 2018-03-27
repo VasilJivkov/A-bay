@@ -1,0 +1,40 @@
+extends ../_shared/master
+
+block content
+    .row
+        form(action="/add",method="POST").col-md-4.col-md-offset-3
+            div
+                span Title:
+                input(type="text", name="title", placeholder="Enter title..")
+            div
+                span Description:
+                textarea(name="description")
+            div
+                div Category:
+                each category, index in categories
+                    label
+                        input(name="categoryId", type="radio", value=category.id)
+                        span
+                            = category.name
+            div
+                span Price:
+                input(type="number", name="price", placeholder="Enter Price..")
+            div
+                spann Photo:
+                input(type="text", name="picture", placeholder="Enter link to photo")
+            div
+                span City:
+                select(name='city')
+                    each city, index in cities
+                        option(name="cityId", value=city.index)
+                            =city.name
+            div
+                div Delivery Type:
+                each delivery, index in deliveryType
+                    label
+                        input(name="deliveryTypeId", type="checkbox", value=delivery.id)
+                        span
+                            =delivery.name
+            div
+                button 
+                    | Add

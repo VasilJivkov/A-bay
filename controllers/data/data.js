@@ -2,7 +2,7 @@ const {
     Users,
     Products,
     Categories,
-    Cities,
+    City,
     DeliveryType,
 } = require('../../models/models');
 
@@ -12,7 +12,7 @@ module.exports = {
     users: new Data(Users),
     products: new Data(Products),
     categories: new Data(Categories),
-    cities: new Data(Cities),
+    cities: new Data(City),
     deliveryType: new Data(DeliveryType),
 };
 
