@@ -1,13 +1,13 @@
 mixin nav()
 	div.row.navbar-toggler.nav(style="display: -webkit-box !important;")
 		div.col-md-2
-			img(src="/static/images/logo.png")
+			//- img(src="/static/images/logo.png")
 		div.col-md-2.adds
 			a(href="/adds")
 				| All adds
 		div.col-md-2
 			div.dropdown
-				button
+				a(href="/categories")
 					| Categories
 				div.dropdown-content
 					a(href='#')
@@ -17,7 +17,7 @@ mixin nav()
 					a(href='#')
 						| Product 3
 		div.col-md-2
-			button(type="button")
+			a(href="/add")
 				| Sell your product
 		div.col-md-2
 			a(href='/signin')
