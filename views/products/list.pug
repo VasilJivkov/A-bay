@@ -1,0 +1,27 @@
+extends ../_shared/master
+
+block content
+    div.allProducts
+        div.titleContainer
+            div.col-md-12
+                h3.title
+                    strong
+                        | Latest products
+        div.productsList
+        div.row.col-md-12
+            each add in adds
+                div.col-md-3.product
+                    div.productPicture.col-md-12
+                        a(href='#{add.picture}')
+                    div.productDesc.row
+                        p.productTitle.title.col-md-8
+                            | #{add.title}
+                        p.price.title
+                            |  #{add.price}
+                    div.row.productsButtons
+                    div.col-md-6
+                        button#showInfo.showInfo.col-md-12
+                            | More info
+                    div.col-md-6
+                        button#addToFav.addToFav.col-md-12
+                            | Add to favorite

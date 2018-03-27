@@ -18,7 +18,7 @@ var Sequelize = require('sequelize');
 var info = {
     "revision": 1,
     "name": "noname",
-    "created": "2018-03-20T20:52:18.486Z",
+    "created": "2018-03-26T21:33:10.570Z",
     "comment": ""
 };
 
@@ -119,16 +119,26 @@ var migrationCommands = [{
                 },
                 "username": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 5,
+                        "max": 20
+                    },
                     "allowNull": false,
                     "unique": true
                 },
                 "password": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 5,
+                        "max": 15
+                    },
                     "allowNull": false
                 },
                 "email": {
                     "type": Sequelize.STRING,
                     "validate": {
+                        "min": 5,
+                        "max": 15,
                         "isEmail": true
                     },
                     "unique": true,
@@ -136,18 +146,34 @@ var migrationCommands = [{
                 },
                 "firstName": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 5,
+                        "max": 15
+                    },
                     "allowNull": false
                 },
                 "lastName": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 5,
+                        "max": 20
+                    },
                     "allowNull": false
                 },
                 "address": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 5,
+                        "max": 30
+                    },
                     "allowNull": false
                 },
                 "city": {
                     "type": Sequelize.STRING,
+                    "validate": {
+                        "min": 3,
+                        "max": 10
+                    },
                     "allowNull": false
                 },
                 "createdAt": {

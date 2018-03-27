@@ -5,22 +5,40 @@ module.exports = (sequelize, DataTypes) => {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                min: 10,
+                max: 20,
+            },
         },
         desc: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                min: 10,
+                max: 25,
+            },
         },
         price: {
             type: DataTypes.DECIMAL,
             allowNull: false,
+            validate: {
+                isNumeric: true,
+            },
         },
         picture: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isUrl: true,
+            },
         },
         status: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                min: 3,
+                max: 10,
+            },
         },
     }, {
             charset: 'utf8',

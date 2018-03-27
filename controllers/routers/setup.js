@@ -7,7 +7,7 @@ const init = (app, data) => {
     app.get('/', (req, res) => {
         console.log('Routes!!!');
 
-        res.render('products/home');
+        res.render('_shared/master');
     });
 
     // Dynamically load all routes
