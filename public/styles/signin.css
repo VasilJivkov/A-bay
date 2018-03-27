@@ -2,6 +2,8 @@
     padding-top: 90px;
 } */
 
+.top-buffer { margin-top:20px; }
+
 .panel-login {
     border-color: #ccc;
     -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
@@ -61,7 +63,7 @@
 }
 
 .btn-login {
-    background-color: #59B2E0;
+    background-color: #5FB12C;
     outline: none;
     color: #fff;
     font-size: 14px;
@@ -69,27 +71,17 @@
     font-weight: normal;
     padding: 14px 0;
     text-transform: uppercase;
-    border-color: #59B2E6;
+    border-color: #5FB12C;
 }
 
 .btn-login:hover, .btn-login:focus {
     color: #fff;
-    background-color: #53A3CD;
-    border-color: #53A3CD;
-}
-
-.forgot-password {
-    text-decoration: underline;
-    color: #888;
-}
-
-.forgot-password:hover, .forgot-password:focus {
-    text-decoration: underline;
-    color: #666;
+    background-color: #5FB12C;
+    border-color: #5FB12C;
 }
 
 .btn-register {
-    background-color: #1CB94E;
+    background-color: #5FB12C;
     outline: none;
     color: #fff;
     font-size: 14px;
@@ -97,7 +89,7 @@
     font-weight: normal;
     padding: 14px 0;
     text-transform: uppercase;
-    border-color: #1CB94A;
+    border-color: #5FB12C;
 }
 
 .btn-register:hover, .btn-register:focus {
