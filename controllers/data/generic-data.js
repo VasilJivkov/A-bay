@@ -15,7 +15,7 @@ class Data {
     }
 
     create(obj) {
-        this.Model.create(obj);
+       return this.Model.create(obj);
     }
 
     filterConstructor(filterObj) {

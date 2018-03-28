@@ -5,31 +5,41 @@ const {
 const init = (app, data) => {
     const router = new Router();
     router
-    .get('/add', async (req, res) => {
-        const cities = await data.cities.getAll();
-        const categories = await data.categories.getAll();
-        const deliveryType = await data.deliveryType.getAll();
-        const context = {
-            cities,
-            categories,
-            deliveryType,
-        };
+        .get('/add', async (req, res) => {
+            const cities = await data.cities.getAll();
+            const categories = await data.categories.getAll();
+            const deliveryType = await data.deliveryType.getAll();
+            const context = {
+                cities,
+                categories,
+                deliveryType,
+            };
 
-        res.render('forms/add', context);
-    })
-    .post('/add', async (req, res) => {
-        const productModel = req.body;
-        const userId = 1;
-        productModel.cityId = +productModel.cityId;
-        productModel.categoryId = +productModel.categoryId;
-        productModel.status = 'ACTIVE';
-        const delivery = Array.isArray(productModel.deliveryTypId) ?
-            productModel.deliveryTypeId : [productModel.deliveryTypeId];
+            res.render('forms/add', context);
+        })
+        .post('/add', async (req, res) => {
+            const productModel = req.body;
+            const userId = 1;
 
-        const product = await data.products.create(productModel);
-        product.setStatus('ACTIVE');
-        product.setDeliveryType(delivery);
-    });
+            productModel.price = +productModel.price;
+            productModel.fk_city_id = +productModel.cityId;
+            productModel.fk_category_id = +productModel.categoryId;
+            productModel.fk_user_id = userId;
+            productModel.status = 'ACTIVE';
+
+            const deliveryIds = Array.isArray(productModel.deliveryTypeId) ?
+                productModel.deliveryTypeId : [productModel.deliveryTypeId];
+
+            const deliveryTypes = await Promise.all(deliveryIds.map((id) => {
+                return data.deliveryType.getById(+id);
+            }));
+
+            const product = await data.products.create(productModel);
+            // await product.setStatus('ACTIVE');
+            await product.setDeliveryTypes(deliveryTypes);
+
+            res.redirect('/');
+        });
 
     app.use('/', router);
 };
