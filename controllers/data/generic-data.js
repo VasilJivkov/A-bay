@@ -67,6 +67,24 @@ class Data {
 
         return products;
     }
+
+    async getAllCreatedAdDates() {
+        const users = await this.getAll();
+
+        const allDates = await Promise.all(
+            await users.map(async (user) => {
+                const dates = await user.dataValues.createdAt;
+
+                return dates;
+            })
+        );
+
+        return Object.values(allDates)
+            .map((d) => {
+                const day = (d + '').split(' ')[0].toLowerCase();
+                return day;
+            });
+    }
 }
 
 module.exports = Data;

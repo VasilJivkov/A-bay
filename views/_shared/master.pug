@@ -6,16 +6,18 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=', crossorigin='anonymous')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js')
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
         script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+        script(src="/static/js/charts.js")
         link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', rel='stylesheet')
         link(rel="stylesheet", type="text/css", href="/static/styles/reset.css")
         link(rel="stylesheet", type="text/css", href="/static/styles/signin.css")
         link(rel="stylesheet", type="text/css", href="/static/styles/main.css")
         link(rel="stylesheet", type="text/css", href="/static/styles/nav.css")
         link(rel="stylesheet", type="text/css", href="/static/styles/dropdown.css")
-        //- link(rel="stylesheet", type="text/css", href="/static/styles/ordinary-button.css")
         title Abay
     body
         +nav()
-    block content
+        block content
