@@ -5,15 +5,16 @@ const {
 
 const init = (app, data) => {
     const router = new Router();
-
-    router.get('/edit', async (req, res) => {
+    router.get('/edit', async (req, res) =>{
         const users = await data.users.getAll();
         const cities = await data.cities.getAll();
+        const categories = await data.categories.getAll();
         const context = {
-            users,
             cities,
+            users,
+            categories,
         };
-        res.render('forms/edit', context);
+        res.render('forms/edit' , context)
     });
 
     router.post('/edit', async (req, res) => {

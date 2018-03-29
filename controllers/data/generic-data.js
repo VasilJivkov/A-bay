@@ -67,6 +67,14 @@ class Data {
 
         return products;
     }
+
+    findByUsername(username) {
+        return this.Model.findOne({
+            where: {
+                username,
+            },
+        });
+    }
 }
 
 module.exports = Data;

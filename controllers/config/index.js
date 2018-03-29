@@ -1,6 +1,6 @@
 /* TO DO: add the paths below and the secret*/
 
-const secret = '';
+const secret = 'Some Secret';
 /* eslint-disable */
 const port = process.env.PORT || 3003;
 

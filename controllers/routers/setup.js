@@ -4,10 +4,13 @@ const fs = require('fs');
 const path = require('path');
 
 const init = (app, data) => {
-    app.get('/', (req, res) => {
-        console.log('Routes!!!');
+    app.get('/', async (req, res) => {
+        const categories = await data.categories.getAll();
+        const context = {
+            categories,
+        };
 
-        res.render('_shared/master');
+        res.render('_shared/master' ,context );
     });
 
     // Dynamically load all routes

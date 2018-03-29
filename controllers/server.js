@@ -3,15 +3,17 @@ const config = require('./config');
 const customExpress = require('./config/express');
 const routers = require('./routers');
 const data = require('../controllers/data');
+const auth = require('./config/auth');
 const app = express();
 
 customExpress.init(app);
+auth.init(app, data);
+
+app.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    return next();
+});
+
 routers.init(app, data);
-
-/** TO DO add middleware */
-// app.use((req, res, next) => {
-// });
-
-/** TO DO complete the dependency injection */
 
 app.listen(config.port);

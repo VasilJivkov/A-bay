@@ -7,14 +7,14 @@
     "start": "node ./controllers/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
-    "migrate": "../node_modules/.bin/sequelize db:migrate",
-    "seed": "../node_modules/.bin/sequelize db:seed:all"
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
+    "seed": "./node_modules/.bin/sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atanasovam/A-bay.git"
   },
-  "author": "Milena Atanasova, Deyan Atanasov, Vasil Jivkov",
+  "author": "Milena Atanasova, Deyan Atanasov, Vasil Arabadzhiev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/atanasovam/A-bay/issues"
@@ -22,9 +22,12 @@
   "homepage": "https://github.com/atanasovam/A-bay#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "mysql2": "^1.5.2",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pug": "^2.0.1"
   },
   "devDependencies": {
