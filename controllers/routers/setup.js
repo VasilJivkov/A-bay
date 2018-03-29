@@ -10,7 +10,7 @@ const init = (app, data) => {
             categories,
         };
 
-        res.render('_shared/master' ,context );
+        res.render('index' , context);
     });
 
     // Dynamically load all routes

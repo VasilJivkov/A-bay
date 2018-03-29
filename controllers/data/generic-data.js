@@ -15,7 +15,7 @@ class Data {
     }
 
     create(obj) {
-        this.Model.create(obj);
+       return this.Model.create(obj);
     }
 
     filterConstructor(filterObj) {
@@ -74,6 +74,24 @@ class Data {
                 username,
             },
         });
+    }
+
+    async getAllCreatedAdDates() {
+        const users = await this.getAll();
+
+        const allDates = await Promise.all(
+            await users.map(async (user) => {
+                const dates = await user.dataValues.createdAt;
+
+                return dates;
+            })
+        );
+
+        return Object.values(allDates)
+            .map((d) => {
+                const day = (d + '').split(' ')[0].toLowerCase();
+                return day;
+            });
     }
 }
 

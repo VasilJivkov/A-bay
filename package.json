@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/atanasovam/A-bay#readme",
   "dependencies": {
+    "ajax": "0.0.4",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
@@ -28,6 +29,10 @@
     "mysql2": "^1.5.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "chart.js": "^2.7.2",
+    "sequelize": "^4.37.4",
+    "sequelize-auto-migrations": "^1.0.2",
+    "sequelize-cli": "^4.0.0",
     "pug": "^2.0.1"
   },
   "devDependencies": {
@@ -35,9 +40,6 @@
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
     "eslint-config-jquery": "^1.0.1",
-    "morgan": "^1.9.0",
-    "sequelize": "^4.37.4",
-    "sequelize-auto-migrations": "^1.0.2",
-    "sequelize-cli": "^4.0.0"
+    "morgan": "^1.9.0"
   }
 }
