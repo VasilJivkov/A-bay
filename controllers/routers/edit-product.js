@@ -11,7 +11,6 @@ const init = (app, data) => {
                 id,
             } = req.params;
 
-            // console.log(req.params);
             const listing = await data.products.getById(+id);
             listing.city = await listing.getCity();
             listing.category = await listing.getCategory();
@@ -37,12 +36,27 @@ const init = (app, data) => {
                 id,
             } = req.params;
 
-            console.log(req.body);
-            // const productToUpdate = await data.products.getById(+id);
+            const {
+                title,
+                desc,
+                price,
+                picture,
+                cityId,
+            } = req.body;
 
-            // console.log(productToUpdate, '-'.repeat(23));
+            const newData = [
+                { title: title },
+                { desc: desc },
+                { price: price },
+                { picture: picture },
+                { cityId: cityId },
+            ];
 
-            // console.log(Object.keys(data.products) + '-'.repeat(30));
+            try {
+                await data.products.update(+id, newData);
+            } catch (err) {
+                console.log('Invalid tokens!');
+            }
             res.redirect('/');
         });
 

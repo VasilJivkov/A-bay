@@ -15,7 +15,31 @@ class Data {
     }
 
     create(obj) {
-       return this.Model.create(obj);
+        return this.Model.create(obj);
+    }
+
+    update(id, data) {
+        const constructor = (dataRow) => {
+            const property = Object.keys(dataRow)[0];
+            const value = dataRow[property];
+
+            this.Model.update({
+                [property]: value,
+            }, {
+                    where: { id: id },
+                },
+            )
+                .success(() => {
+                    console.log('Valid tokens!');
+                })
+                .error(() => {
+                    console.log('Invalid tokens!');
+                });
+        };
+
+        data.forEach((dataToUpdate) => {
+            constructor(dataToUpdate);
+        });
     }
 
     filterConstructor(filterObj) {
