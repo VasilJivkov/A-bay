@@ -19,12 +19,9 @@ class Data {
     }
 
     update(id, data) {
-        const constructor = (dataRow) => {
-            const property = Object.keys(dataRow)[0];
-            const value = dataRow[property];
-
+        const DBTableUpdate = (key, value) => {  
             this.Model.update({
-                [property]: value,
+                [key]: value,
             }, {
                     where: { id: id },
                 },
@@ -37,8 +34,11 @@ class Data {
                 });
         };
 
-        data.forEach((dataToUpdate) => {
-            constructor(dataToUpdate);
+        data.forEach((dataRowToUpdate) => {
+            const attr = Object.keys(dataRowToUpdate)[0];
+            const value = dataRowToUpdate[attr];
+
+            DBTableUpdate(attr, value);
         });
     }
 
