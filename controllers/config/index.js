@@ -4,9 +4,9 @@ const secret = 'Some Secret';
 /* eslint-disable */
 const port = process.env.PORT || 3003;
 
-const dbConnectionString = process.env.NODE_ENV === 'production' ?
-    'cloud path' :
-    'local path';
+const dbConnectionString = process.env.NODE_ENV === 'production'
+    ? 'cloud path'
+    : 'local path';
 /* eslint-enable */
 
 module.exports = {

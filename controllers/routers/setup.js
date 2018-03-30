@@ -10,7 +10,7 @@ const init = (app, data) => {
             categories,
         };
 
-        res.render('index' , context);
+        res.render('index', context);
     });
 
     // Dynamically load all routes

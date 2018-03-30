@@ -19,7 +19,7 @@ class Data {
     }
 
     update(id, data) {
-        const DBTableUpdate = (key, value) => {  
+        const dBTableUpdate = (key, value) => {
             this.Model.update({
                 [key]: value,
             }, {
@@ -38,7 +38,7 @@ class Data {
             const attr = Object.keys(dataRowToUpdate)[0];
             const value = dataRowToUpdate[attr];
 
-            DBTableUpdate(attr, value);
+            dBTableUpdate(attr, value);
         });
     }
 
@@ -49,47 +49,37 @@ class Data {
     }
 
     filterByCity(id) {
-        const products = this.filterConstructor({
+        return this.filterConstructor({
             fk_city_id: id,
         });
-
-        return products;
     }
 
     filterByCategory(id) {
-        const products = this.filterConstructor({
+        return this.filterConstructor({
             fk_category_id: id,
         });
-
-        return products;
     }
 
     filterByUser(id) {
-        const products = this.filterConstructor({
+        return this.filterConstructor({
             fk_user_id: id,
         });
-
-        return products;
     }
 
     orderBy(column, parameter) {
-        const orderedProducts = this.Model.findAll({
+        return this.Model.findAll({
             order: [
                 [column, parameter],
             ],
         });
-
-        return orderedProducts;
     }
 
     searchBy(catecogy, parameter) {
-        const products = this.Model.findAll({
+        return this.Model.findAll({
             where: {
                 catecogy: parameter,
             },
         });
-
-        return products;
     }
 
     findByUsername(username) {

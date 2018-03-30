@@ -40,7 +40,7 @@ const init = (app, data) => {
 
     app.use(cookieParser());
     app.use(session({
-        secret: config.secret
+        secret: config.secret,
     }));
 
     app.use(passport.initialize());

@@ -6,7 +6,7 @@ const {
     DeliveryType,
 } = require('../../models/models');
 
-const Data = require('./generic-data');
+const Data = require('./generic');
 
 module.exports = {
     users: new Data(Users),

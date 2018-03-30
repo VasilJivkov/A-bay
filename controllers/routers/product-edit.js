@@ -26,9 +26,7 @@ const init = (app, data) => {
                 categories,
                 deliveryType,
             };
-            // const customID = req.originalUrl.split('/edit/')[1];
 
-            // console.log(req.originalUrl.split('/edit/')[1]);
             res.render('forms/edit-listing', context);
         })
         .post('/:id', async (req, res) => {
