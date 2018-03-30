@@ -1,11 +1,10 @@
 $(function () {
-    console.log($('body'));
-    const response = {};
+    var response = {};
 
     $.ajax({
-        method: 'POST',
+        method: "POST",
         async: false,
-        url: '/api/chart',
+        url: "/api/chart",
         error: function (err) {
             console.log(err);
         },
@@ -33,8 +32,6 @@ $(function () {
                 "yAxes": [{
                     "display": true,
                     "ticks": {
-                        // suggestedMin: 0,
-                        // beginAtZero: true
                     }
                 }]
             },

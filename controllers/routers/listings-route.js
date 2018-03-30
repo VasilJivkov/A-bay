@@ -6,7 +6,6 @@ const init = (app, data) => {
     const router = new Router();
     router
         .get('/add', async (req, res) => {
-
             const cities = await data.cities.getAll();
             const categories = await data.categories.getAll();
             const deliveryType = await data.deliveryType.getAll();
@@ -17,29 +16,6 @@ const init = (app, data) => {
             };
 
             res.render('forms/add', context);
-        })
-        .get('/:id/edit', async (req, res) => {
-            const {
-                id,
-            } = req.params;
-
-            const listing = await data.products.getById(+id);
-            listing.city = await listing.getCity();
-            listing.category = await listing.getCategory();
-            listing.deliveryType = await listing.getDeliveryTypes();
-
-            const cities = await data.cities.getAll();
-            const categories = await data.categories.getAll();
-            const deliveryType = await data.deliveryType.getAll();
-
-            const context = {
-                listing,
-                cities,
-                categories,
-                deliveryType,
-            };
-
-            res.render('forms/edit-listing', context);
         })
         .post('/add', async (req, res) => {
             const productModel = req.body;
@@ -59,7 +35,6 @@ const init = (app, data) => {
             }));
 
             const product = await data.products.create(productModel);
-            // await product.setStatus('ACTIVE');
             await product.setDeliveryTypes(deliveryTypes);
 
             res.redirect('/');

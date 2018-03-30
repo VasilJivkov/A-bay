@@ -6,20 +6,13 @@ const init = (app, data) => {
     const router = new Router();
 
     router
-        .get('/', (req, res) => {
-            console.log('Routes!!!');
-
-            res.render('_shared/master');
-
-        })
         .get('/signin', async (req, res) => {
             const categories = await data.categories.getAll();
             const context = {
                 categories,
             };
 
-            res.render('forms/signin' , context);
-
+            res.render('forms/signin', context);
         })
         .get('/adds', async (req, res) => {
             const cities = await data.cities.getAll();
@@ -44,7 +37,7 @@ const init = (app, data) => {
                 adds,
                 cities,
                 users,
-                categories
+                categories,
             };
 
             res.render('products/list', content);
@@ -56,7 +49,7 @@ const init = (app, data) => {
             try {
                 const daysCount = {
                     'mon': 0,
-                    'tue': -1,
+                    'tue': 0,
                     'wed': 0,
                     'thu': 0,
                     'fri': 0,
