@@ -7,7 +7,7 @@
                     "allowNull": false,
                     "primaryKey": true,
                     "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "name": {
                     "unique": true,
@@ -16,15 +16,15 @@
                         "min": 4,
                         "max": 20
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 }
             },
             "indexes": []
@@ -36,7 +36,7 @@
                     "allowNull": false,
                     "primaryKey": true,
                     "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "name": {
                     "unique": true,
@@ -45,15 +45,15 @@
                         "min": 3,
                         "max": 15
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 }
             },
             "indexes": []
@@ -65,7 +65,7 @@
                     "allowNull": false,
                     "primaryKey": true,
                     "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "name": {
                     "unique": true,
@@ -74,15 +74,15 @@
                         "min": 4,
                         "max": 15
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 }
             },
             "indexes": []
@@ -94,7 +94,7 @@
                     "allowNull": false,
                     "primaryKey": true,
                     "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "title": {
                     "allowNull": false,
@@ -102,7 +102,7 @@
                         "min": 10,
                         "max": 20
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "desc": {
                     "allowNull": false,
@@ -110,21 +110,21 @@
                         "min": 10,
                         "max": 25
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "price": {
                     "allowNull": false,
                     "validate": {
                         "isNumeric": true
                     },
-                    "seqType": "Sequelize.DECIMAL"
+                    "seqType": "DECIMAL"
                 },
                 "picture": {
                     "allowNull": false,
                     "validate": {
                         "isUrl": true
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "status": {
                     "allowNull": false,
@@ -132,15 +132,15 @@
                         "min": 3,
                         "max": 10
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "fk_city_id": {
                     "name": "fk_city_id",
@@ -151,7 +151,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "fk_user_id": {
                     "name": "fk_user_id",
@@ -162,7 +162,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "fk_category_id": {
                     "name": "fk_category_id",
@@ -173,7 +173,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 }
             },
             "indexes": []
@@ -185,7 +185,7 @@
                     "allowNull": false,
                     "primaryKey": true,
                     "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "username": {
                     "unique": true,
@@ -194,7 +194,7 @@
                         "min": 5,
                         "max": 20
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "password": {
                     "allowNull": false,
@@ -202,7 +202,7 @@
                         "min": 5,
                         "max": 15
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "email": {
                     "allowNull": false,
@@ -212,7 +212,7 @@
                         "max": 15,
                         "isEmail": true
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "firstName": {
                     "allowNull": false,
@@ -220,7 +220,7 @@
                         "min": 5,
                         "max": 15
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "lastName": {
                     "allowNull": false,
@@ -228,7 +228,7 @@
                         "min": 5,
                         "max": 20
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "address": {
                     "allowNull": false,
@@ -236,7 +236,7 @@
                         "min": 5,
                         "max": 30
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "city": {
                     "allowNull": false,
@@ -244,15 +244,15 @@
                         "min": 3,
                         "max": 10
                     },
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "VARCHAR(255)"
                 },
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 }
             },
             "indexes": []
@@ -262,11 +262,11 @@
             "schema": {
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "DeliveryTypeId": {
                     "primaryKey": true,
@@ -276,7 +276,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "ProductId": {
                     "primaryKey": true,
@@ -286,7 +286,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 }
             },
             "indexes": []
@@ -296,11 +296,11 @@
             "schema": {
                 "createdAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "updatedAt": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "DATETIME"
                 },
                 "ProductId": {
                     "primaryKey": true,
@@ -310,7 +310,7 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 },
                 "UserId": {
                     "primaryKey": true,
@@ -320,11 +320,11 @@
                     },
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                    "seqType": "INTEGER"
                 }
             },
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 4
 }

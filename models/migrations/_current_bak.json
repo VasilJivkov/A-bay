@@ -12,6 +12,10 @@
                 "name": {
                     "unique": true,
                     "allowNull": false,
+                    "validate": {
+                        "min": 4,
+                        "max": 20
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "createdAt": {
@@ -37,6 +41,10 @@
                 "name": {
                     "unique": true,
                     "allowNull": false,
+                    "validate": {
+                        "min": 3,
+                        "max": 15
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "createdAt": {
@@ -62,6 +70,10 @@
                 "name": {
                     "unique": true,
                     "allowNull": false,
+                    "validate": {
+                        "min": 4,
+                        "max": 15
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "createdAt": {
@@ -314,5 +326,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 3
 }

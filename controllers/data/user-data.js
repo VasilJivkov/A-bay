@@ -6,10 +6,16 @@ const {
 
 class UsersData extends Data {
     constructor() {
-        super(Users);
+        super(Users, []);
     }
 
-
+    findByUsername(username) {
+        return this.Model.findOne({
+            where: {
+                username,
+            },
+        });
+    }
 }
 
 module.exports = UsersData;

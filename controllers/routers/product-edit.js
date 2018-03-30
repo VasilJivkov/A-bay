@@ -1,9 +1,21 @@
 const {
     Router,
 } = require('express');
+const {
+    ProductController,
+    CityController,
+    CategoryController,
+    DeliveryTypeController,
+} = require('../controllers');
+
 
 const init = (app, data) => {
     const router = new Router();
+
+    const productController = new ProductController(data);
+    const cityController = new CityController(data);
+    const categoryController = new CategoryController(data);
+    const deliveryTypeController = new DeliveryTypeController(data);
 
     router
         .get('/:id', async (req, res) => {
@@ -11,14 +23,12 @@ const init = (app, data) => {
                 id,
             } = req.params;
 
-            const listing = await data.products.getById(+id);
-            listing.city = await listing.getCity();
-            listing.category = await listing.getCategory();
-            listing.deliveryType = await listing.getDeliveryTypes();
+            const listing = await productController.getById(+id);
 
-            const cities = await data.cities.getAll();
-            const categories = await data.categories.getAll();
-            const deliveryType = await data.deliveryType.getAll();
+
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
+            const deliveryType = await deliveryTypeController.getAll();
 
             const context = {
                 listing,
@@ -27,7 +37,7 @@ const init = (app, data) => {
                 deliveryType,
             };
 
-            res.render('forms/edit-listing', context);
+            res.render('products/edit', context);
         })
         .post('/:id', async (req, res) => {
             const {
@@ -42,18 +52,26 @@ const init = (app, data) => {
                 cityId,
             } = req.body;
 
-            const newData = [
-                { title: title },
-                { desc: desc },
-                { price: price },
-                { picture: picture },
-                { cityId: cityId },
+            const newData = [{
+                    title: title,
+                },
+                {
+                    desc: desc,
+                },
+                {
+                    price: price,
+                },
+                {
+                    picture: picture,
+                },
+                {
+                    cityId: cityId,
+                },
             ];
-
             try {
                 await data.products.update(+id, newData);
             } catch (err) {
-                console.log('Invalid tokens!');
+                console.log(err);
             }
             res.redirect('/');
         });

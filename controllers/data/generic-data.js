@@ -42,53 +42,6 @@ class Data {
         });
     }
 
-    filterConstructor(filterObj) {
-        return this.Model.findAll({
-            where: filterObj,
-        });
-    }
-
-    filterByCity(id) {
-        return this.filterConstructor({
-            fk_city_id: id,
-        });
-    }
-
-    filterByCategory(id) {
-        return this.filterConstructor({
-            fk_category_id: id,
-        });
-    }
-
-    filterByUser(id) {
-        return this.filterConstructor({
-            fk_user_id: id,
-        });
-    }
-
-    orderBy(column, parameter) {
-        return this.Model.findAll({
-            order: [
-                [column, parameter],
-            ],
-        });
-    }
-
-    searchBy(catecogy, parameter) {
-        return this.Model.findAll({
-            where: {
-                catecogy: parameter,
-            },
-        });
-    }
-
-    findByUsername(username) {
-        return this.Model.findOne({
-            where: {
-                username,
-            },
-        });
-    }
 
     async getAllCreatedAdDates() {
         const users = await this.getAll();
