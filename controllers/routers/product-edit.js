@@ -27,7 +27,7 @@ const init = (app, data) => {
                 deliveryType,
             };
 
-            res.render('forms/edit-listing', context);
+            res.render('products/edit', context);
         })
         .post('/:id', async (req, res) => {
             const {

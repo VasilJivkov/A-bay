@@ -4,6 +4,11 @@ class Data {
         this.includes = includes;
     }
 
+    /**
+        * @description Gets all entries from specified DB table
+        * @return {Object} All rows from the given DB table
+        */
+
     getAll() {
         return this.Model.findAll();
     }

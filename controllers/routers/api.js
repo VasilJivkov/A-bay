@@ -6,40 +6,21 @@ const init = (app, data) => {
     const router = new Router();
 
     router
-        .post('/chart', async (req, res) => {
+        .get('/api/products', async (req, res) => {
             try {
-                const daysCount = {
-                    'mon': 0,
-                    'tue': 0,
-                    'wed': 0,
-                    'thu': 0,
-                    'fri': 0,
-                    'sat': 0,
-                    'sun': 0,
-                };
+                const allProducts = await data.products.getAll();
+                allProducts = await allProducts.dataValues;
+                const context = await { allProducts };
+                console.log(context);
 
-                (await data.products.getAllCreatedAdDates())
-                    .forEach((day) => {
-                        daysCount[day] += 1;
-                    });
-
-                const context = {
-                    productsLabels: [
-                        'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-                        'Friday', 'Saturday', 'Sunday',
-                    ],
-                    productsData: Object.values(daysCount),
-                    productsID: '#products-active-days',
-                    productsTitle: 'Active days',
-                };
-
-                res.status(200).send(context);
+                res.send(context);
             } catch (err) {
-                res.satus(500).end();
+                res.status(500).send({ title: 'Internal Server Error!' });
             }
         });
 
-    app.use('/api', router);
+
+    app.use('/', router);
 };
 
 module.exports = {

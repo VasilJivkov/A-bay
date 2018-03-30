@@ -2,9 +2,9 @@ $(function () {
     var response = {};
 
     $.ajax({
-        method: "POST",
+        method: "GET",
         async: false,
-        url: "/api/chart",
+        url: "/chart",
         error: function (err) {
             console.log(err);
         },

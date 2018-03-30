@@ -2,7 +2,7 @@ extends ../_shared/master
 
 block content
     div.col-md-6.col-md-offset-3.top-buffer.line-align
-        form.form-horizontal(action="/edit", method="POST")
+        form.form-horizontal(action="/edit", method="GET")
             each user in users
                 .form-group.row
                     label.col-md-3.col-form-label(for='username-input') Username
