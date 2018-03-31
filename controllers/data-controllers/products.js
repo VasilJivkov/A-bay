@@ -1,7 +1,8 @@
 const GeneralData = require('./general');
+
 const {
     Products,
-} = require('../../models');
+} = require('../../models/models');
 
 class ProductsData extends GeneralData {
     constructor() {
@@ -16,7 +17,11 @@ class ProductsData extends GeneralData {
         return this.getAllCreatedAdDates();
     }
 
-    set createProduct(obj) {
+    /**
+     * @param object new model
+     */
+
+    createProduct(obj) {
         return this.create(obj);
     }
 
@@ -29,7 +34,7 @@ class ProductsData extends GeneralData {
        * @return Returns db object with id = id parameter.
        */
 
-    set updateProduct([id, obj]) {
+    updateProduct([ id, obj]) {
         return this.update(id, obj);
     }
 

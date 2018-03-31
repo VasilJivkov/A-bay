@@ -8,7 +8,8 @@ const init = (app, data) => {
         .get('/publish', async (req, res) => {
             const cities = await data.cities.getAll();
             const categories = await data.categories.getAll();
-            const deliveryType = await data.deliveryType.getAll();
+            const deliveryType = await data.deliveryType.all;
+
             const context = {
                 cities,
                 categories,
@@ -37,7 +38,7 @@ const init = (app, data) => {
                         return data.deliveryType.getById(+id);
                     }));
 
-                const product = await data.products.create(productModel);
+                const product = await data.products.createProduct(productModel);
                 await product.setDeliveryTypes(deliveryTypes);
 
                 res.redirect('/');

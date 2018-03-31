@@ -1,10 +1,18 @@
 const {
     DeliveryType,
-} = require('../../models');
+} = require('../../models/models');
 
 class DeliveryTypesData {
     constructor(includes = []) {
         includes = this.includes;
+    }
+
+    get all() {
+        return DeliveryType.findAll();
+    }
+
+    getById(id) {
+        return DeliveryType.findById(id);
     }
 
     async findProductsByDeliveryType(deliveryTypeID) {

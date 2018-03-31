@@ -1,7 +1,8 @@
 const GeneralData = require('./general');
+
 const {
     City,
-} = require('../../models');
+} = require('../../models/models');
 
 class CititesData extends GeneralData {
     constructor() {

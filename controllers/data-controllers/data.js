@@ -1,10 +1,9 @@
-const {
-    ProductsData,
-    UsersData,
-    DeliveryTypesData,
-    CategoriesData,
-    CititesData,
-} = require('./');
+const ProductsData = require('./products');
+const UsersData = require('./users');
+const DeliveryTypesData = require('./delivery-type');
+const CategoriesData = require('./caregories');
+const CititesData = require('./cities');
+
 
 module.exports = {
     users: new UsersData(),

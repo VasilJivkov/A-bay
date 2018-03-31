@@ -15,32 +15,14 @@ const init = (app, data) => {
             res.render('forms/signin', context);
         })
         .get('/adds', async (req, res) => {
-            const cities = await data.cities.getAll();
-            const categories = await data.categories.getAll();
-            const users = await data.users.getAll();
-
-            const adds = [{
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }, {
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }, {
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }];
+            const adds = data.products.all;
 
             const content = {
                 adds,
-                cities,
-                users,
-                categories,
             };
 
-            res.render('products/list-all', content);
+            res.render('index', content);
+            // res.render('products/list-all', content);
         })
         .get('/categories', (req, res) => {
             res.render('products/categories');
