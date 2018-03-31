@@ -6,7 +6,7 @@ const customExpress = require('./config/express');
 const auth = require('./config/auth');
 
 const routers = require('./routers');
-const data = require('../controllers/data-controllers');
+const data = require('../app/data');
 
 const app = express();
 

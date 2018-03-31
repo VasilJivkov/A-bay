@@ -5,20 +5,26 @@ const {
 const init = (app, data) => {
     const router = new Router();
 
+    const ProductsController = require('../controllers/products');
+    const CategoriesConstructor = require('../controllers/categories');
+    const DeliveryTypeConstructor = require('../controllers/categories');
+    const CitiesConstructor = require('../controllers/cities');
+
     router
         .get('/:id', async (req, res) => {
             const {
                 id,
             } = req.params;
 
-            const listing = await data.products.getById(+id);
-            listing.city = await listing.getCity();
-            listing.category = await listing.getCategory();
-            listing.deliveryType = await listing.getDeliveryTypes();
+            const productsController = new ProductsController();
+            const categoriesController = new CategoriesConstructor();
+            const deliveryTypeConstructor = new DeliveryTypeConstructor();
+            const citiesConstructor = new CitiesConstructor();
 
-            const cities = await data.cities.getAll();
-            const categories = await data.categories.getAll();
-            const deliveryType = await data.deliveryType.all;
+            const listing = await productsController.getFullInfo(id);
+            const cities = await citiesConstructor.all;
+            const categories = await categoriesController.all;
+            const deliveryType = await deliveryTypeConstructor.all;
 
             const context = {
                 listing,
