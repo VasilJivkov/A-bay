@@ -8,21 +8,35 @@ const init = (app, data) => {
     router
         .get('/signin', async (req, res) => {
             const categories = await data.categories.getAll();
+            // console.log(categories);
             const context = {
                 categories,
             };
 
             res.render('forms/signin', context);
         })
-        .get('/adds', async (req, res) => {
-            const adds = data.products.all;
+        .get('/publishings', async (req, res) => {
+            const users = await data.users.all;
+            const categories = await data.categories.getAll();
+            const cities = await data.cities.getAll();
+            let publishings = await data.products.all;
+
+            publishings = Promise.all(
+                publishings.map(async (publish) => {
+                    return publish.dataValues;
+                })
+            );
+
+            const allPublishings = await publishings;
 
             const content = {
-                adds,
+                allPublishings,
+                users,
+                categories,
+                cities,
             };
 
-            res.render('index', content);
-            // res.render('products/list-all', content);
+            res.render('products/list-all', content);
         })
         .get('/categories', (req, res) => {
             res.render('products/categories');

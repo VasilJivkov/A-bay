@@ -18,7 +18,7 @@ const init = (app, data) => {
 
             const cities = await data.cities.getAll();
             const categories = await data.categories.getAll();
-            const deliveryType = await data.getAll();
+            const deliveryType = await data.deliveryType.all;
 
             const context = {
                 listing,
