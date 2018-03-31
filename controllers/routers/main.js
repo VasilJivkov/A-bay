@@ -72,9 +72,9 @@ const init = (app, data) => {
                     productsTitle: 'Active days',
                 };
 
-                res.status(200).send(context);
+                res.render('index', context);
             } catch (err) {
-                res.satus(500).end();
+                res.render('/');
             }
         });
 
