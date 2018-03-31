@@ -1,22 +1,33 @@
+const {
+    Router,
+} = require('express');
+
 const passport = require('passport');
 
+const {
+    CategoryController,
+} = require('../controllers');
 
-const init= (app) => {
+const init = (app, data) => {
+    const router = new Router();
 
-    app.get('/login', async (req,res) => {
-        const categories = await data.categories.getAll();
-        const context = {
-            categories,
-        };
+    const categoryController = new CategoryController(data);
 
-        res.render('forms/signin' , context);
-    });
+    router
+        .get('/login', async (req, res) => {
+            const categories = await categoryController.getAll();
+            const context = {
+                categories,
+            };
 
-    app.post('/login',
+            res.render('forms/signin', context);
+        })
+        .post('/login',
         passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/login',
-            failureFlash: false })
+            failureFlash: false,
+        })
     );
 };
 

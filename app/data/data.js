@@ -1,15 +1,17 @@
-const ProductsData = require('./products');
-const UsersData = require('./users');
-const DeliveryTypesData = require('./delivery-type');
-const CategoriesData = require('./caregories');
-const CititesData = require('./cities');
+const {
+    Categories,
+    City,
+    DeliveryType,
+} = require('../../models/models');
 
+const Data = require('./generic-data');
+const UsersData = require('./user-data');
+const ProductsData = require('./products-data');
 
 module.exports = {
     users: new UsersData(),
     products: new ProductsData(),
-    categories: new CategoriesData(),
-    cities: new CititesData(),
-    deliveryType: new DeliveryTypesData(),
+    categories: new Data(Categories),
+    cities: new Data(City),
+    deliveryType: new Data(DeliveryType),
 };
-

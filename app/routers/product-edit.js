@@ -2,13 +2,20 @@ const {
     Router,
 } = require('express');
 
+const {
+    ProductController,
+    CityController,
+    CategoryController,
+    DeliveryTypeController,
+} = require('../controllers');
+
 const init = (app, data) => {
     const router = new Router();
 
-    const ProductsController = require('../controllers/products');
-    const CategoriesConstructor = require('../controllers/categories');
-    const DeliveryTypeConstructor = require('../controllers/categories');
-    const CitiesConstructor = require('../controllers/cities');
+    const productController = new ProductController(data);
+    const cityController = new CityController(data);
+    const categoryController = new CategoryController(data);
+    const deliveryTypeController = new DeliveryTypeController(data);
 
     router
         .get('/:id', async (req, res) => {
@@ -16,15 +23,11 @@ const init = (app, data) => {
                 id,
             } = req.params;
 
-            const productsController = new ProductsController();
-            const categoriesController = new CategoriesConstructor();
-            const deliveryTypeConstructor = new DeliveryTypeConstructor();
-            const citiesConstructor = new CitiesConstructor();
+            const listing = await productController.getById(+id);
 
-            const listing = await productsController.getFullInfo(id);
-            const cities = await citiesConstructor.all;
-            const categories = await categoriesController.all;
-            const deliveryType = await deliveryTypeConstructor.all;
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
+            const deliveryType = await deliveryTypeController.getAll();
 
             const context = {
                 listing,
@@ -57,7 +60,7 @@ const init = (app, data) => {
             ];
 
             try {
-                await data.products.update(+id, newData);
+                await productController.update(+id, newData);
             } catch (err) {
                 console.log('Invalid tokens!');
             }
