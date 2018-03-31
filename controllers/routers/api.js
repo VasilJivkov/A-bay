@@ -15,7 +15,7 @@ const init = (app, data) => {
 
                 res.send(context);
             } catch (err) {
-                res.status(500).send({ title: 'Internal Server Error!' });
+                // res.status(500).send({ title: 'Internal Server Error!' });
             }
         });
 

@@ -20,20 +20,20 @@ $(function () {
         "type": "bar",
         "data": {
             "labels": response.labels,
-            "datasets": [{
+            "datasets": [ {
                 "backgroundColor": [
                     "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2"
                 ],
                 "data": response.data
-            }]
+            } ]
         },
         "options": {
             "scales": {
-                "yAxes": [{
+                "yAxes": [ {
                     "display": true,
                     "ticks": {
                     }
-                }]
+                } ]
             },
             "legend": {
                 "display": false

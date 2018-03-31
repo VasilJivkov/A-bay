@@ -2,54 +2,38 @@ const {
     Router,
 } = require('express');
 
-const {
-    ProductController,
-    CityController,
-    CategoryController,
-    UserController,
-} = require('../controllers');
-
 const init = (app, data) => {
     const router = new Router();
 
-    const productController = new ProductController(data);
-    const cityController = new CityController(data);
-    const categoryController = new CategoryController(data);
-    const userController = new UserController(data);
-
     router
         .get('/signin', async (req, res) => {
-            const categories = await categoryController.getAll();
+            const categories = await data.categories.getAll();
+
             const context = {
                 categories,
             };
 
             res.render('forms/signin', context);
         })
-        .get('/listings', async (req, res) => {
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const users = await userController.getAll();
+        .get('/publishings', async (req, res) => {
+            const users = await data.users.all;
+            const categories = await data.categories.getAll();
+            const cities = await data.cities.getAll();
+            let publishings = await data.products.all;
 
-            const listings = [{
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }, {
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }, {
-                title: 'ThinkPad T55',
-                price: 300 + 'lv',
-                picture: 'https://smartphone.bg/system/images/151631/normal/MQAC2GHA.jpg',
-            }];
+            publishings = Promise.all(
+                publishings.map(async (publish) => {
+                    return publish.dataValues;
+                })
+            );
+
+            const allPublishings = await publishings;
 
             const content = {
-                listings,
-                cities,
+                allPublishings,
                 users,
                 categories,
+                cities,
             };
 
             res.render('products/list-all', content);
@@ -84,9 +68,9 @@ const init = (app, data) => {
                     productsTitle: 'Active days',
                 };
 
-                res.status(200).send(context);
+                res.render('index', context);
             } catch (err) {
-                res.satus(500).end();
+                res.render('/');
             }
         });
 
