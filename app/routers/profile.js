@@ -27,6 +27,23 @@ const init = (app, data) => {
             };
             res.render('profile/edit', context);
         })
+
+        .get('/profile', async (req, res) => {
+            const {
+                id,
+            } = req.params;
+
+            const user = await userController.getById(+id);
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
+            const context = {
+                cities,
+                user,
+                categories,
+            };
+            res.render('profile/userDetails', context);
+        })
+
         .post('/edit', async (req, res) => {
 
         });

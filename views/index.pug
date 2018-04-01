@@ -1,6 +1,9 @@
 extends ./_shared/master
 
 block content
+    if (user)
+        div.alert.alert-success
+            strong Welcome you your A-bay account #{user.firstName}
     .chartsContainer
         .container.col-md-5
             .chart-container

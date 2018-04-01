@@ -7,6 +7,13 @@
     padding: 15px;
     width: auto;
 }
+
+nav ul li a:hover {
+    color: #FFF;
+    background: rgba(255,255,255,.25);
+    margin: 0;
+}
+
 .nav >li >a {
     padding-top: 30px;
     padding-bottom: 30px;

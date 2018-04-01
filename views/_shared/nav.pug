@@ -10,18 +10,55 @@ mixin nav()
 				a.navbar-brand(href='/')
 					img(src='/static/images/logo.png', alt='A-Bay buy&sell goods and services')
 			#navbar.navbar-collapse.collapse
-				ul.nav.navbar-nav.navbar-right
-					li.active
-						a(href='/publishings') All Listings
-					li.dropdown
-						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-							| Categories
-							span.caret
-						ul.dropdown-menu(role='menu')
-							li
-								each cat in categories
-									a(href=("/" + cat.name))=cat.name
-					li
-						a(href='/publish') Publish your offer
-					li
-						a(href='/signin') Login/Register
+				if user
+					ul.nav.navbar-nav.navbar-right
+						li.active
+							a(href='/publishings') All Listings
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+								| Categories
+								span.caret
+							ul.dropdown-menu(role='menu')
+								li
+									each cat in categories
+										a(href=("/" + cat.name))=cat.name
+						li
+							a(href='/publish') Publish your offer
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown')
+								span.glyphicon.glyphicon-user
+								strong #{user.username}
+								span.glyphicon.glyphicon-chevron-down
+							ul.dropdown-menu
+								li
+									.navbar-login
+										.row
+											.col-lg-4
+												p.text-center
+													span.glyphicon.glyphicon-user.icon-size
+											.col-lg-8
+												p.text-left
+													strong #{user.firstName}
+												p.text-left.small #{user.email}
+												p.text-left
+													a.btn.btn-primary.btn-block.btn-sm(href='/edit') Edit Account
+								li.divider
+								li.navbar-login.navbar-login-session
+										.row
+											.col-lg-12
+												p
+													a.btn.btn-danger.btn-block(href='/logout') Logout
+				else
+					ul.nav.navbar-nav.navbar-right
+						li.active
+							a(href='/publishings') All Listings
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+								| Categories
+								span.caret
+							ul.dropdown-menu(role='menu')
+								li
+									each cat in categories
+										a(href=("/" + cat.name))=cat.name
+						li
+							a(href='/signin') Login/Register
