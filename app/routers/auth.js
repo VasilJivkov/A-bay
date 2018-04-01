@@ -14,7 +14,7 @@ const init = (app, data) => {
     const categoryController = new CategoryController(data);
     router
         .get('/login', async (req, res) => {
-            const categories = await categoryController.getAll();
+            const categories = await categoryController.all;
             req.flash('info', "Ivalid Credentials, try again");
             const context = {
                 categories,

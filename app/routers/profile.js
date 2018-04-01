@@ -17,9 +17,9 @@ const init = (app, data) => {
 
     router
         .get('/edit', async (req, res) => {
-            const users = await userController.getAll();
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
+            const users = await userController.all;
+            const cities = await cityController.all;
+            const categories = await categoryController.all;
             const context = {
                 cities,
                 users,
@@ -27,15 +27,15 @@ const init = (app, data) => {
             };
             res.render('profile/edit', context);
         })
-
         .get('/profile', async (req, res) => {
             const {
                 id,
             } = req.params;
 
             const user = await userController.getById(+id);
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
+            const cities = await cityController.all;
+            const categories = await categoryController.all;
+
             const context = {
                 cities,
                 user,
@@ -43,7 +43,6 @@ const init = (app, data) => {
             };
             res.render('profile/userDetails', context);
         })
-
         .post('/edit', async (req, res) => {
 
         });

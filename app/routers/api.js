@@ -5,22 +5,26 @@ const {
 const init = (app, data) => {
     const router = new Router();
 
-    router
-        .get('/api/products', async (req, res) => {
-            try {
-                const allProducts = await data.products.getAll();
-                allProducts = await allProducts.dataValues;
-                const context = await { allProducts };
-                console.log(context);
+    const ProductController = require('../controllers/product-controller');
 
-                res.send(context);
-            } catch (err) {
-                // res.status(500).send({ title: 'Internal Server Error!' });
-            }
+    router
+        .get('/products', async (req, res) => {
+            // try {
+            const productController = new ProductController(data);
+
+            const allProducts = await productController.formatedAPIInfo;
+
+            const context = { allProducts };
+
+            res.send(context);
+            // } catch (err) {
+            //     res.status(500)
+            // .send(err.message); // 'Internal Server Error!'
+            // }
         });
 
 
-    app.use('/', router);
+    app.use('/api', router);
 };
 
 module.exports = {

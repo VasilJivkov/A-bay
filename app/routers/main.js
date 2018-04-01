@@ -19,7 +19,7 @@ const init = (app, data) => {
 
     router
         .get('/signin', async (req, res) => {
-            const categories = await categoryController.getAll();
+            const categories = await categoryController.all;
 
             const context = {
                 categories,
@@ -28,11 +28,11 @@ const init = (app, data) => {
             res.render('forms/signin', context);
         })
         .get('/publishings', async (req, res) => {
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const users = await userController.getAll();
+            const cities = await cityController.all;
+            const categories = await categoryController.all;
+            const users = await userController.all;
 
-            let publishings = await productController.getAll();
+            let publishings = await productController.all;
 
             publishings = Promise.all(
                 publishings.map(async (publish) => {

@@ -19,9 +19,9 @@ const init = (app, data) => {
 
     router
         .get('/publish', async (req, res) => {
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const deliveryType = await deliveryTypeController.getAll();
+            const cities = await cityController.all;
+            const categories = await categoryController.all;
+            const deliveryType = await deliveryTypeController.all;
 
             const context = {
                 cities,
@@ -33,10 +33,13 @@ const init = (app, data) => {
         })
         .post('/publish', async (req, res) => {
             try {
+                const {
+                    userId,
+                } = req.params;
                 const productModel = req.body;
-                const userId = 1;
 
-                await productController.create(productModel, userId);
+                await productController.create(productModel, +userId);
+
                 res.redirect('/');
             } catch (err) {
                 console.log(err);

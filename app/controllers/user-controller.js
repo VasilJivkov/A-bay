@@ -1,34 +1,29 @@
-class UserController {
+const GeneralController = require('./_general');
+
+class UserController extends GeneralController {
     constructor(data) {
+        super();
         this.data = data;
     }
 
-    getAll() {
-        const users = this.data.users.getAll();
-        return users;
+    get all() {
+        return this.data.cities.Model.findAll();
     }
 
     getById(id) {
-        const user = this.data.users.getById(id);
-        return user;
+        return this.data.cities.Model.findOne({
+            where: {
+                id: id,
+            },
+        });
     }
 
-    create(newUser) {
-        const user = this.data.users.create(newUser);
-        return user;
+    set create(newUser) {
+        return this.data.users.create(newUser);
     }
 
     findByUsername(username) {
-        const user = this.data.users.findByUsername(username);
-        return user;
-    }
-
-    update(id, data) {
-        this.data.products.update(id, data);
-    }
-
-    async getAllCreatedAdDates() {
-        return await this.data.users.getAllCreatedAdDates();
+        return this.data.users.findByUsername(username);
     }
 }
 

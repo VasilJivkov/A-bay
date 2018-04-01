@@ -3,14 +3,17 @@ class CityController {
         this.data = data;
     }
 
-    getAll() {
-        const cities = this.data.cities.getAll();
-        return cities;
+    get all() {
+        return this.data.cities.Model.findAll();
     }
 
     getById(id) {
-        const city = this.data.cities.getById(id);
-        return city;
+        return this.data.cities.Model.findOne({
+            where: {
+                id: id,
+            },
+        });
     }
 }
-    module.exports = CityController;
+
+module.exports = CityController;

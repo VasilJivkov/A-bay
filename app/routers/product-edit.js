@@ -23,11 +23,10 @@ const init = (app, data) => {
                 id,
             } = req.params;
 
-            const listing = await productController.getById(+id);
-
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const deliveryType = await deliveryTypeController.getAll();
+            const listing = await productController.getFullInfo(id);
+            const cities = await cityController.all;
+            const categories = await categoryController.all;
+            const deliveryType = await deliveryTypeController.all;
 
             const context = {
                 listing,
