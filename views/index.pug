@@ -1,13 +1,27 @@
 extends ./_shared/master
 
 block content
+    div.col-md-12
+        img(src="/static/images/main.jpg", alt="")
     if (user)
         div.alert.alert-success
             strong Welcome you your A-bay account #{user.firstName}
+    div.row
+        div.container
+            .col-xl-4.col-lg-4.info-panel.thumbnail
+                span.badge +45%
+                p Active users
+            .col-xl-4.col-lg-4.info-panel.thumbnail
+                span.badge +45%
+                p Active users
+            .col-xl-4.col-lg-4.info-panel.thumbnail
+                span.badge +45%
+                p Active users
     .chartsContainer
-        .container.col-md-5
+        .container.col-md-6
             .chart-container
                 canvas#products-active-days
-        .container.col-md-5
-            .chart-container
                 canvas#bar
+        .container.col-sm-6
+            .chart-container
+                canvas#pie

@@ -7,11 +7,13 @@ class ProductsData extends Data {
     constructor() {
         super(Products, []);
     }
+
     filterConstructor(filterObj) {
         return this.Model.findAll({
             where: filterObj,
         });
     }
+
     /**
      * @description Filter method, which filters by city.
      * @param id number

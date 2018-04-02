@@ -1,38 +1,38 @@
+/* globals Chart */
 $(function () {
-    var response = {};
+    var bar = {};
+    var pie = {};
 
     $.ajax({
         method: "GET",
         async: false,
         url: "/chart",
-        error: function (err) {
-            console.log(err);
-        },
         success: function (res) {
-            response.data = res.productsData;
-            response.labels = res.productsLabels;
-            response.elementID = res.productsID;
-            response.elementTitle = res.productsTitle;
+            bar = res.barData;
+            pie = res.pieData;
+        },
+        error: function (err) {
+            throw new Error(err.message);
         }
     });
 
-    var bar = new Chart($(response.elementID), {
+    new Chart($(bar.id), {
         "type": "bar",
         "data": {
-            "labels": response.labels,
+            "labels": bar.labels,
             "datasets": [ {
                 "backgroundColor": [
-                    "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2"
+                    "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2",
+                    "#071a38", "#b21d0c", "#0af702", "#a117a8", "#747ea5", "#755ea5"
                 ],
-                "data": response.data
+                "data": bar.data
             } ]
         },
         "options": {
             "scales": {
                 "yAxes": [ {
                     "display": true,
-                    "ticks": {
-                    }
+                    "ticks": {}
                 } ]
             },
             "legend": {
@@ -40,7 +40,27 @@ $(function () {
             },
             "title": {
                 "display": true,
-                "text": response.elementTitle
+                "text": bar.title
+            }
+        }
+    });
+
+    new Chart($(pie.id), {
+        type: "pie",
+        data: {
+            labels: pie.labels,
+            datasets: [ {
+                label: "Population",
+                backgroundColor: [
+                    "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#c70850"
+                ],
+                data: pie.data
+            } ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: pie.title
             }
         }
     });
