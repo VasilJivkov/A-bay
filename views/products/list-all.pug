@@ -1,27 +1,16 @@
 extends ../_shared/master
 
 block content
-    div.allProducts
-        div.titleContainer
-            div.col-md-12
-                h3.title
-                    strong
-                        | Latest products
-        div.productsList
-        div.row.col-md-12
+    .container.main-section
+        .row
             each add in allPublishings
-                div.col-md-3.product
-                    div.productPicture.col-md-12
-                        img(src=add.picture)
-                    div.productDesc.row
-                        p.productTitle.title.col-md-8
-                            | #{add.title}
-                        p.price.title
-                            |  #{add.price}
-                    div.row.productsButtons
-                    div.col-md-6
-                        a#showInfo.showInfo.col-md-12
-                            | More info
-                    div.col-md-6
-                        a#addToFav.addToFav.col-md-12
-                            | Add to favorite
+                .col-md-3.col-sm-3.col-xs-12.image-main-section
+                    .row.img-part
+                        .col-md-12.col-sm-12.colxs-12.img-section
+                            img(src=add.picture)
+                        .col-md-12.col-sm-12.col-xs-12.image-title
+                            h3 #{add.title}
+                        .col-md-12.col-sm-12.col-xs-12.image-title
+                            h3 #{add.desc}
+                        .col-md-12.col-sm-12.col-xs-12
+                            a.btn.btn-success.add-cart-btn(href='#') #{add.price} лв

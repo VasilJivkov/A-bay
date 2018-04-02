@@ -42,5 +42,4 @@ app.use(function (req, res, next) {
 });
 
 routers.init(app, data);
-
-app.listen(config.port);
+app.listen(1337);
