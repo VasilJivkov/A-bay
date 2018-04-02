@@ -18,6 +18,23 @@ const init = (app, data) => {
     const userController = new UserController(data);
 
     router
+        .get('/', async (req, res) => {
+            const latestProducts = (async (type) => {
+                let allPublishings =
+                    await productController.getFormatedDataForListing();
+
+                allPublishings = (await allPublishings).slice(0, 10);
+
+                const content = {
+                    allPublishings,
+                };
+
+                console.log(allPublishings);
+                return content;
+            })();
+
+            res.render('products/latest', latestProducts);
+        })
         .get('/signin', async (req, res) => {
             const categories = await categoryController.getAll();
             console.log(categories);

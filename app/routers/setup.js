@@ -7,7 +7,6 @@ const {
 } = require('../controllers');
 
 const init = (app, data) => {
-
     const categoryController = new CategoryController(data);
 
     app.get('/', async (req, res) => {

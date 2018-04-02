@@ -100,6 +100,17 @@ class ProductController {
         return product;
     }
 
+    async getFormatedDataForListing() {
+        let publishings = await this.data.products.getAll();
+
+        publishings = Promise.all(
+            publishings.map(async (publish) => {
+                return publish.dataValues;
+            })
+        );
+
+        return publishings;
+    }
     async create(productModel, userId) {
         productModel.price = +productModel.price;
         productModel.fk_city_id = +productModel.cityId;
