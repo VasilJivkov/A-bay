@@ -2,10 +2,16 @@
 
 const fs = require('fs');
 const path = require('path');
+const {
+    CategoryController,
+} = require('../controllers');
 
 const init = (app, data) => {
+
+    const categoryController = new CategoryController(data);
+
     app.get('/', async (req, res) => {
-        const categories = await data.categories.getAll();
+        const categories = await categoryController.getAll();
         const context = {
             categories,
         };

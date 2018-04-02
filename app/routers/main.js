@@ -19,8 +19,8 @@ const init = (app, data) => {
 
     router
         .get('/signin', async (req, res) => {
-            const categories = await categoryController.all;
-
+            const categories = await categoryController.getAll();
+            console.log(categories);
             const context = {
                 categories,
             };
@@ -28,11 +28,11 @@ const init = (app, data) => {
             res.render('forms/signin', context);
         })
         .get('/publishings', async (req, res) => {
-            const cities = await cityController.all;
-            const categories = await categoryController.all;
-            const users = await userController.all;
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
+            const users = await userController.getAll();
 
-            let publishings = await productController.all;
+            let publishings = await productController.getAll();
 
             publishings = Promise.all(
                 publishings.map(async (publish) => {
@@ -83,7 +83,7 @@ const init = (app, data) => {
 
                 res.render('index', context);
             } catch (err) {
-                res.render('/');
+                res.redirect('/');
             }
         });
 

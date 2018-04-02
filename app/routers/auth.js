@@ -7,18 +7,21 @@ const validator = require('express-validator');
 
 const {
     CategoryController,
+    UserController,
 } = require('../controllers');
 
 const init = (app, data) => {
     const router = new Router();
     const categoryController = new CategoryController(data);
+    const userController = new UserController(data);
+
     router
         .get('/login', async (req, res) => {
-            const categories = await categoryController.all;
-            req.flash('info', "Ivalid Credentials, try again");
+            const categories = await categoryController.getAll();
+            req.flash('info', 'Ivalid Credentials, try again');
             const context = {
                 categories,
-                messages: req.flash('info')
+                messages: req.flash('info'),
             };
             res.render('forms/signin', context);
         })
@@ -51,10 +54,10 @@ const init = (app, data) => {
         req.checkBody('password' , 'Password is required').nonEmpty();
         req.checkBody('password2' , 'Password is requred').nonEmpty();
 
-        data.users.create(req.body);
+        userController.create(req.body);
 
             return res.redirect('/login');
-        })
+        });
 
     app.use('/', router);
 
@@ -75,7 +78,6 @@ const init = (app, data) => {
         //         }
         //     }
         // );
-
 };
 
 module.exports = {

@@ -44,18 +44,14 @@ class Data {
     update(id, data) {
         const dBTableUpdate = (key, value) => {
             this.Model.update({
-                    [key]: value,
-                }, {
-                    where: {
-                        id: id,
-                    },
-                }, )
-                .success(() => {
-                    console.log('Valid tokens!');
-                })
-                .error(() => {
-                    console.log('Invalid tokens!');
-                });
+                [key]: value,
+            }, {
+                where: {
+                    id: id,
+                },
+            }, ).success(() => {}).error(() => {
+                console.log('Invalid tokens!');
+            });
         };
 
         data.forEach((dataRowToUpdate) => {

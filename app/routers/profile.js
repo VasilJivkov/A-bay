@@ -17,9 +17,9 @@ const init = (app, data) => {
 
     router
         .get('/edit', async (req, res) => {
-            const users = await userController.all;
-            const cities = await cityController.all;
-            const categories = await categoryController.all;
+            const users = await userController.getAll();
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
             const context = {
                 cities,
                 users,
@@ -33,8 +33,8 @@ const init = (app, data) => {
             } = req.params;
 
             const user = await userController.getById(+id);
-            const cities = await cityController.all;
-            const categories = await categoryController.all;
+            const cities = await user.getCity();
+            const categories = await categoryController.getAll();
 
             const context = {
                 cities,

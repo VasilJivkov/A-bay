@@ -8,9 +8,15 @@ const {
     Strategy,
 } = require('passport-local');
 
+const {
+    UserController,
+} = require('../controllers')
 const init = (app, data) => {
+
+    const userController = new UserController(data);
+
     passport.use(new Strategy(async (username, password, done) => {
-        const user = await data.users.findByUsername(username);
+        const user = await userController.findByUsername(username);
 
         if (!user || user.password !== password) {
             return done(null, false, {
@@ -29,7 +35,7 @@ const init = (app, data) => {
 
     // string to User
     passport.deserializeUser(async (username, done) => {
-        const user = await data.users.findByUsername(username);
+        const user = await userController.findByUsername(username);
 
         if (!user) {
             return done(new Error('invalid used'));

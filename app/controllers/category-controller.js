@@ -3,17 +3,14 @@ class CategoryController {
         this.data = data;
     }
 
-    get all() {
-        return this.data.categories.Model.findAll();
+    getAll() {
+        const categories = this.data.categories.getAll();
+        return categories;
     }
 
     getById(id) {
-        return this.data.categories.Model.findOne({
-            where: {
-                id: id,
-            },
-        });
+        const category = this.data.categories.getById(id);
+        return category;
     }
 }
-
 module.exports = CategoryController;

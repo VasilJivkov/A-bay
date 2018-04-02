@@ -19,9 +19,9 @@ const init = (app, data) => {
 
     router
         .get('/publish', async (req, res) => {
-            const cities = await cityController.all;
-            const categories = await categoryController.all;
-            const deliveryType = await deliveryTypeController.all;
+            const cities = await cityController.getAll();
+            const categories = await categoryController.getAll();
+            const deliveryType = await deliveryTypeController.getAll();
 
             const context = {
                 cities,

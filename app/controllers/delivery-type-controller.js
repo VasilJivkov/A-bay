@@ -3,17 +3,14 @@ class DeliveryTypeController {
         this.data = data;
     }
 
-    get all() {
-        return this.data.deliveryType.Model.findAll();
+    getAll() {
+        const deliveryTypes = this.data.deliveryType.getAll();
+        return deliveryTypes;
     }
 
     getById(id) {
-        return this.data.deliveryType.Model.findOne({
-            where: {
-                id: id,
-            },
-        });
+        const deliveryType = this.data.deliveryType.getById(id);
+        return deliveryType;
     }
 }
-
-module.exports = DeliveryTypeController;
+    module.exports = DeliveryTypeController;

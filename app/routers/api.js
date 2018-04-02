@@ -2,19 +2,23 @@ const {
     Router,
 } = require('express');
 
+const {
+    ProductController,
+} = require('../controllers');
+
 const init = (app, data) => {
     const router = new Router();
 
-    const ProductController = require('../controllers/product-controller');
+    const productController = new ProductController(data);
 
     router
         .get('/products', async (req, res) => {
             // try {
-            const productController = new ProductController(data);
-
             const allProducts = await productController.formatedAPIInfo;
 
-            const context = { allProducts };
+            const context = {
+                allProducts,
+            };
 
             res.send(context);
             // } catch (err) {
