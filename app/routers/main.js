@@ -37,7 +37,6 @@ const init = (app, data) => {
         })
         .get('/signin', async (req, res) => {
             const categories = await categoryController.getAll();
-            console.log(categories);
             const context = {
                 categories,
             };
