@@ -11,8 +11,9 @@ $(function () {
             bar = res.barData;
             pie = res.pieData;
         },
-        error: function (err) {
-            throw new Error(err.message);
+        error: function (/* err */) {
+
+            // console.log(err.message);
         }
     });
 
