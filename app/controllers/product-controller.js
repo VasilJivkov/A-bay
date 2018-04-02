@@ -119,8 +119,8 @@ class ProductController {
         await product.setDeliveryTypes(deliveryTypes);
     }
 
-    update([id, data]) {
-        this.data.products.update([id, data]);
+    update(id, data) {
+        this.data.products.update(id, data);
     }
 
     filterByCity(cityId) {
