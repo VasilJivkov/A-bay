@@ -20,20 +20,20 @@ $(function () {
         "type": "bar",
         "data": {
             "labels": bar.labels,
-            "datasets": [{
+            "datasets": [ {
                 "backgroundColor": [
                     "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2",
                     "#071a38", "#b21d0c", "#0af702", "#a117a8", "#747ea5", "#755ea5"
                 ],
                 "data": bar.data
-            }]
+            } ]
         },
         "options": {
             "scales": {
-                "yAxes": [{
+                "yAxes": [ {
                     "display": true,
                     "ticks": {}
-                }]
+                } ]
             },
             "legend": {
                 "display": false
@@ -49,13 +49,13 @@ $(function () {
         type: "pie",
         data: {
             labels: pie.labels,
-            datasets: [{
+            datasets: [ {
                 label: "Population",
                 backgroundColor: [
                     "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#c70850"
                 ],
                 data: pie.data
-            }]
+            } ]
         },
         options: {
             title: {
