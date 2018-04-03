@@ -41,6 +41,6 @@ app.use(function (req, res, next) {
 });
 
 routers.init(app, data);
-app.listen(3006);
+app.listen(1337);
 
 
