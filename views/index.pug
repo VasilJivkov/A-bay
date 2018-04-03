@@ -2,28 +2,16 @@ extends ./_shared/master
 include ./products/latest
 
 block content
-    div.col-md-12
-        img(src="/static/images/main.jpg", alt="")
-    //if (user)
-    //    div.alert.alert-success
-    //        strong Welcome you your A-bay account #{user.firstName}
-    div.row
-        div.container
-            .col-xl-4.col-lg-4.info-panel.thumbnail
-                span.badge +45%
-                p Active users
-            .col-xl-4.col-lg-4.info-panel.thumbnail
-                span.badge +45%
-                p Active users
-            .col-xl-4.col-lg-4.info-panel.thumbnail
-                span.badge +45%
-                p Active users
-    .chartsContainer
-        .container.col-md-6
-            .chart-container
-                canvas#products-active-days
-                canvas#bar
-        .container.col-sm-6
-            .chart-container
-                canvas#pie
-    +latest()
+    .backgroundImage.col-md-12.col-lg-12
+    .chartsContainer.container
+        .row
+            .container.col-md-6.col-lg-6.col-sm-12
+                .chart-container
+                    canvas#products-active-days
+                    canvas#bar
+            .container.col-md-6.col-lg-6.col-sm-12
+                .chart-container
+                    canvas#pie
+    .latestContainer.container
+        .row
+            +latest()

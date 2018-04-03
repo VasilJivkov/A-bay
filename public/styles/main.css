@@ -2,10 +2,24 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 100%;
     background-color: #ced5dd;
+
 }
 
-div.col-md-2 {
-    overflow: hidden;
+div.backgroundImage{
+    background-image: url('/static/images/main.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0px -20px;
+    box-shadow: 0 0 5px 2px #282a2d;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+    position: fixed;
+    left: 0;
+    height: 500px;
+    right: 0;
 }
 
 
@@ -42,3 +56,5 @@ div.col-md-2 {
     border-radius:0px;
     font-size: 11px;
 }
+
+
