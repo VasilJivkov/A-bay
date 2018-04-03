@@ -45,13 +45,24 @@ const init = (app, data) => {
                     user,
                     categories,
                 };
-                res.render('profile/profileDetails', context);
+                res.render('profile/edit', context);
             } else {
                 res.redirect('/signin');
             }
         })
         .post('/edit', async (req, res) => {
+            try {
+                const user = req.user;
+                const userId = user.id;
+                const userModel = req.body;
 
+                await userController.update(+userId, userModel);
+
+                res.redirect('/');
+            } catch (err) {
+                console.log(err);
+                res.redirect('/');
+            }
         });
 
     app.use('/profile', router);

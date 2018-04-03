@@ -26,7 +26,6 @@ const init = (app, data) => {
             latestProducts,
             categories,
         };
-        console.log(context);
         res.render('index', context);
     });
 

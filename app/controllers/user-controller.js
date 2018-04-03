@@ -24,7 +24,7 @@ class UserController {
     }
 
     update(id, data) {
-        this.data.products.update(id, data);
+        this.data.users.update(id, data);
     }
 
     async getAllCreatedAdDates() {

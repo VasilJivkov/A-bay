@@ -48,18 +48,15 @@ const init = (app, data) => {
         const password = registerForm.password;
         const password2 = registerForm.confirm_password;
 
-        //validation
-        req.checkBody('username' , 'Name is required').nonEmpty();
-        req.checkBody('email' , 'Email is required').nonEmpty().isEmail();
-        req.checkBody('password' , 'Password is required').nonEmpty();
-        req.checkBody('password2' , 'Password is requred').nonEmpty();
+        // //validation
+        // req.checkBody('username' , 'Name is required').nonEmpty();
+        // req.checkBody('email' , 'Email is required').nonEmpty().isEmail();
+        // req.checkBody('password' , 'Password is required').nonEmpty();
+        // req.checkBody('password2' , 'Password is requred').nonEmpty();
 
         userController.create(req.body);
-
             return res.redirect('/login');
         });
-
-    app.use('/', router);
 
         // .post('/register', async (req, res) => {
         //         try {
@@ -77,7 +74,9 @@ const init = (app, data) => {
         //             });
         //         }
         //     }
-        // );
+
+        app.use('/', router);
+
 };
 
 module.exports = {

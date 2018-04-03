@@ -32,12 +32,6 @@ class Data {
      */
 
     create(obj) {
-        const userObj = this.Model.create({
-            username: obj.username,
-            email: obj.email,
-            password: obj.password,
-        });
-
         return this.Model.create(obj);
     }
     /**
