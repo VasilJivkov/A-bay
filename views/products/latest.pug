@@ -2,12 +2,12 @@ mixin latest()
     div.allProducts
         div.titleContainer
             div.col-md-12
-                //h3.title
+                h3.title
                     strong
                         | Latest products
-        //div.productsList
-        //div.row.col-md-12
-            // each add in allPublishings
+        div.productsList
+        div.row.col-md-12
+            each add in latestProducts
                 div.col-md-3.product
                     div.productPicture.col-md-12
                         img(src=add.picture)

@@ -13,7 +13,14 @@ const init = (app, data) => {
     const productController = new ProductController(data)
     app.get('/', async (req, res) => {
         const allPublishings = await productController.getAll();
-        const latestProducts = allPublishings.slice(0, 10);
+        let latestProducts = allPublishings.slice(0, 10);
+
+        latestProducts = await Promise.all(
+            latestProducts.map(async (pr) => {
+                return pr.dataValues;
+            })
+        );
+
         const categories = await categoryController.getAll();
         const context = {
             latestProducts,
