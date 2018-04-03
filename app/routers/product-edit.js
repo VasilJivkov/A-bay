@@ -22,20 +22,26 @@ const init = (app, data) => {
             const {
                 id,
             } = req.params;
-
+            const user = req.user;
             const listing = await productController.getById(+id);
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const deliveryType = await deliveryTypeController.getAll();
+            if (user
+                && user.id === listing.fk_user_id
+                && listing.status === 'ACTIVE') {
+                const cities = await cityController.getAll();
+                const categories = await categoryController.getAll();
+                const deliveryType = await deliveryTypeController.getAll();
 
-            const context = {
-                listing,
-                cities,
-                categories,
-                deliveryType,
-            };
+                const context = {
+                    listing,
+                    cities,
+                    categories,
+                    deliveryType,
+                };
 
-            res.render('products/edit', context);
+                res.render('products/edit', context);
+            } else {
+                res.redirect('/publishings');
+            }
         })
         .post('/:id', async (req, res) => {
             const {
@@ -50,18 +56,66 @@ const init = (app, data) => {
                 cityId,
             } = req.body;
 
-            const newData = [
-                { title: title },
-                { desc: desc },
-                { price: price },
-                { picture: picture },
-                { cityId: cityId },
+            const newData = [{
+                    title: title,
+                },
+                {
+                    desc: desc,
+                },
+                {
+                    price: price,
+                },
+                {
+                    picture: picture,
+                },
+                {
+                    cityId: cityId,
+                },
             ];
 
             try {
                 await productController.update(+id, newData);
             } catch (err) {
                 console.log('Invalid tokens!');
+            }
+            res.redirect('/');
+        })
+        .get('/:id/close', async (req, res) => {
+            const user = req.user;
+            const {
+                id,
+            } = req.params;
+            const listing = await productController.getById(+id);
+            if (user
+                && user.id === listing.fk_user_id
+                && listing.status === 'ACTIVE') {
+                const categories = await categoryController.getAll();
+                const context = {
+                    categories,
+                    listing,
+                };
+
+                res.render('products/close', context)
+            } else {
+                res.redirect('/publishings');
+            }
+        })
+        .post('/:id/close', async (req, res) => {
+            const {
+                id,
+            } = req.params;
+
+            const {
+                status,
+            } = req.body;
+
+            const newData = [{
+                status: status,
+            }]
+            try {
+                await productController.update(+id, newData);
+            } catch (err) {
+                console.log(err);
             }
             res.redirect('/');
         });

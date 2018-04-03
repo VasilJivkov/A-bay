@@ -2,20 +2,24 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const {
     CategoryController,
+    ProductController,
 } = require('../controllers');
 
 const init = (app, data) => {
-
     const categoryController = new CategoryController(data);
-
+    const productController = new ProductController(data)
     app.get('/', async (req, res) => {
+        const allPublishings = await productController.getAll();
+        const latestProducts = allPublishings.slice(0, 10);
         const categories = await categoryController.getAll();
         const context = {
+            latestProducts,
             categories,
         };
-
+        console.log(context);
         res.render('index', context);
     });
 

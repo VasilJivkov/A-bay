@@ -4,7 +4,6 @@ const config = require('./config');
 const flash = require('express-flash');
 const customExpress = require('./config/express');
 const auth = require('./config/auth');
-const validator = require('express-validator');
 const routers = require('./routers');
 const data = require('../app/data');
 
@@ -15,22 +14,22 @@ auth.init(app, data);
 
 
 // Express Validator
-app.use(validator({
-    errorFormatter: function(param, msg, value) {
-        var namespace = param.split('.')
-            , root    = namespace.shift()
-            , formParam = root;
+// app.use(validator({
+//     errorFormatter: function(param, msg, value) {
+//         var namespace = param.split('.')
+//             , root    = namespace.shift()
+//             , formParam = root;
 
-        while(namespace.length) {
-            formParam += '[' + namespace.shift() + ']';
-        }
-        return {
-            param : formParam,
-            msg   : msg,
-            value : value
-        };
-    }
-}));
+//         while(namespace.length) {
+//             formParam += '[' + namespace.shift() + ']';
+//         }
+//         return {
+//             param : formParam,
+//             msg   : msg,
+//             value : value
+//         };
+//     }
+// }));
 
 // Connect Flash
 app.use(flash());
@@ -42,4 +41,6 @@ app.use(function (req, res, next) {
 });
 
 routers.init(app, data);
-app.listen(1337);
+app.listen(3006);
+
+

@@ -19,23 +19,27 @@ const init = (app, data) => {
 
     router
         .get('/publish', async (req, res) => {
-            const cities = await cityController.getAll();
-            const categories = await categoryController.getAll();
-            const deliveryType = await deliveryTypeController.getAll();
+            if (req.user) {
+                const cities = await cityController.getAll();
+                const categories = await categoryController.getAll();
+                const deliveryType = await deliveryTypeController.getAll();
 
-            const context = {
-                cities,
-                categories,
-                deliveryType,
-            };
+                const context = {
+                    cities,
+                    categories,
+                    deliveryType,
+                };
 
-            res.render('products/create', context);
+                res.render('products/create', context);
+            } else {
+                res.redirect('/signin');
+            }
         })
         .post('/publish', async (req, res) => {
             try {
-                const {
-                    userId,
-                } = req.params;
+                const user = req.user;
+                const userId = user.id;
+
                 const productModel = req.body;
 
                 await productController.create(productModel, +userId);

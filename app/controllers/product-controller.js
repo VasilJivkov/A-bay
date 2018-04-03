@@ -8,6 +8,87 @@ class ProductController {
         return products;
     }
 
+    async getChartsInfo() {
+        const barData = await (async () => {
+            const daysCount = {
+                'mon': 0,
+                'tue': 0,
+                'wed': 0,
+                'thu': 0,
+                'fri': 0,
+                'sat': 0,
+                'sun': 0,
+            };
+
+            (await this.data.products.getAllCreatedAdDates())
+                .forEach((day) => {
+                    daysCount[day] += 1;
+                });
+
+            const context = {
+                labels: [
+                    'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                    'Friday', 'Saturday', 'Sunday',
+                ],
+                data: Object.values(daysCount),
+                id: '#products-active-days',
+                title: 'Active days',
+            };
+
+            return context;
+        })();
+
+        const pieData = await (async () => {
+            let products = await this.data.products.getAll();
+            products = await Promise.all(
+                products.map(async (product) => {
+                    return product.dataValues.fk_category_id;
+                })
+            );
+
+            const categories = {};
+            const categoriesForPie = [];
+
+            let categoriesData = await this.data.categories.getAll();
+
+            categoriesData = await Promise.all(
+                categoriesData.map(async (category) => {
+                    categoriesForPie.push(category.dataValues.name);
+                    categories[category.dataValues.id] = {
+                        id: category.dataValues.name,
+                        product: [],
+                    };
+
+                    return;
+                })
+            );
+
+            const dataPerCategory = Array.from({
+                length: Object.keys(categoriesData).length,
+            }).fill(0);
+
+            products.forEach((product) => {
+                dataPerCategory[+product - 1] += 1;
+            });
+
+            const context = {
+                labels: categoriesForPie,
+                data: dataPerCategory,
+                id: '#pie',
+                title: 'MOST POPULAR CATEGORIES',
+            };
+
+            return context;
+        })();
+
+        const context = {
+            barData,
+            pieData,
+        };
+
+        return context;
+    }
+
     async getById(id) {
         const product = await this.data.products.getById(id);
 
@@ -19,6 +100,17 @@ class ProductController {
         return product;
     }
 
+    async getFormatedDataForListing() {
+        let publishings = await this.data.products.getAll();
+
+        publishings = Promise.all(
+            publishings.map(async (publish) => {
+                return publish.dataValues;
+            })
+        );
+
+        return publishings;
+    }
     async create(productModel, userId) {
         productModel.price = +productModel.price;
         productModel.fk_city_id = +productModel.cityId;
@@ -38,8 +130,8 @@ class ProductController {
         await product.setDeliveryTypes(deliveryTypes);
     }
 
-    update([id, data]) {
-        this.data.products.update([id, data]);
+    update(id, data) {
+        this.data.products.update(id, data);
     }
 
     filterByCity(cityId) {

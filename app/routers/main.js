@@ -20,7 +20,6 @@ const init = (app, data) => {
     router
         .get('/signin', async (req, res) => {
             const categories = await categoryController.getAll();
-            console.log(categories);
             const context = {
                 categories,
             };
@@ -56,34 +55,10 @@ const init = (app, data) => {
         })
         .get('/chart', async (req, res) => {
             try {
-                const daysCount = {
-                    'mon': 0,
-                    'tue': 0,
-                    'wed': 0,
-                    'thu': 0,
-                    'fri': 0,
-                    'sat': 0,
-                    'sun': 0,
-                };
-
-                (await productController.getAllCreatedAdDates())
-                    .forEach((day) => {
-                        daysCount[day] += 1;
-                    });
-
-                const context = {
-                    productsLabels: [
-                        'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-                        'Friday', 'Saturday', 'Sunday',
-                    ],
-                    productsData: Object.values(daysCount),
-                    productsID: '#products-active-days',
-                    productsTitle: 'Active days',
-                };
-
-                res.render('index', context);
+                const context = await productController.getChartsInfo();
+                res.send(context);
             } catch (err) {
-                res.redirect('/');
+                res.satus(500).end();
             }
         });
 
