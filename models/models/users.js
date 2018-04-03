@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: 5,
         max: 15,
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: 5,
         max: 20,
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: 5,
         max: 30,
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: 3,
         max: 10,

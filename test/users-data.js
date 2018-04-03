@@ -5,7 +5,7 @@ const {
     expect,
 } = require('chai');
 
-describe('Test users data', () => {
+describe('Test users data', () =>  { 
     let username = null;
     let user = null;
     let data = null;
